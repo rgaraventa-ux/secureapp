@@ -1109,10 +1109,15 @@ async function saveClient() {
   };
 
   window._clients[id] = data;
-  renderAll(); // UI inmediata sin esperar nube
+
+  // Sincronizar agenda del cliente con el calendario
+  syncAgendaToCalendar(id, data);
+
+  renderAll();
 
   if (window._localMode) {
     setLS('sp_clients', window._clients);
+    setLS('sp_events', window._events);
   } else if (window._currentUser) {
     try { await window._saveClientToFirestore(id, data); }
     catch(e) { console.error(e); showToast('⚠️ Error al guardar en nube'); }
@@ -1122,6 +1127,39 @@ async function saveClient() {
   showToast('✅ Cliente guardado');
 }
 window.saveClient = saveClient;
+
+function syncAgendaToCalendar(clientId, clientData) {
+  // Eliminar eventos anteriores de este cliente que vengan de agenda
+  Object.keys(window._events).forEach(eid => {
+    if (window._events[eid]._fromClient === clientId) {
+      delete window._events[eid];
+      if (!window._localMode && window._currentUser) {
+        window._deleteEventFromFirestore(eid).catch(()=>{});
+      }
+    }
+  });
+
+  // Agregar los nuevos items de agenda como eventos
+  if (clientData.agenda && clientData.agenda.length > 0) {
+    clientData.agenda.forEach(a => {
+      if (!a.date) return;
+      const eid = uid();
+      const evData = {
+        id: eid,
+        type: 'mant',
+        date: a.date,
+        time: '',
+        client: clientData.name,
+        desc: a.desc || '',
+        _fromClient: clientId
+      };
+      window._events[eid] = evData;
+      if (!window._localMode && window._currentUser) {
+        window._saveEventToFirestore(eid, evData).catch(()=>{});
+      }
+    });
+  }
+}
 
 async function deleteClient(id) {
   if (!confirm('¿Eliminar este cliente?')) return;
