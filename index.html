@@ -1109,33 +1109,31 @@ async function saveClient() {
   };
 
   window._clients[id] = data;
+  renderAll(); // UI inmediata sin esperar nube
 
   if (window._localMode) {
     setLS('sp_clients', window._clients);
-    renderAll();
-  } else if (window._fbReady && window._currentUser) {
+  } else if (window._currentUser) {
     try { await window._saveClientToFirestore(id, data); }
-    catch(e) { console.error(e); showToast('Error al guardar en nube'); }
+    catch(e) { console.error(e); showToast('⚠️ Error al guardar en nube'); }
   }
 
   closeModal('modal-client');
   showToast('✅ Cliente guardado');
-  renderAll();
 }
 window.saveClient = saveClient;
 
 async function deleteClient(id) {
   if (!confirm('¿Eliminar este cliente?')) return;
   delete window._clients[id];
+  renderAll();
   if (window._localMode) {
     setLS('sp_clients', window._clients);
-    renderAll();
-  } else if (window._fbReady && window._currentUser) {
+  } else if (window._currentUser) {
     try { await window._deleteClientFromFirestore(id); }
     catch(e) { console.error(e); }
   }
   showToast('🗑 Cliente eliminado');
-  renderAll();
 }
 window.deleteClient = deleteClient;
 
@@ -1171,18 +1169,17 @@ async function saveEvent() {
   };
 
   window._events[id] = data;
+  renderAll(); // UI inmediata
 
   if (window._localMode) {
     setLS('sp_events', window._events);
-    renderAll();
-  } else if (window._fbReady && window._currentUser) {
+  } else if (window._currentUser) {
     try { await window._saveEventToFirestore(id, data); }
-    catch(e) { console.error(e); }
+    catch(e) { console.error(e); showToast('⚠️ Error al guardar evento'); }
   }
 
   closeModal('modal-event');
   showToast('✅ Evento guardado');
-  renderAll();
 }
 window.saveEvent = saveEvent;
 
