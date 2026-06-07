@@ -5,62 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SecuroPro</title>
 <meta name="theme-color" content="#1a56db">
-<link rel="manifest" href="data:application/json,{&quot;name&quot;:&quot;SecuroPro&quot;,&quot;short_name&quot;:&quot;SecuroPro&quot;,&quot;start_url&quot;:&quot;.&quot;,&quot;display&quot;:&quot;standalone&quot;,&quot;background_color&quot;:&quot;#f8fafc&quot;,&quot;theme_color&quot;:&quot;#1a56db&quot;}">
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
   * { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --primary: #1a56db;
-    --primary-dark: #1341b0;
-    --primary-light: #e8f0fe;
-    --accent: #f59e0b;
-    --danger: #ef4444;
-    --success: #10b981;
-    --bg: #f8fafc;
-    --card: #ffffff;
-    --border: #e2e8f0;
-    --text: #1e293b;
-    --text-secondary: #64748b;
-    --text-light: #94a3b8;
-    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
-    --radius: 10px;
+    --navy:           #0f1e3d;
+    --navy-mid:       #1a3260;
+    --primary:        #1d4ed8;
+    --primary-dark:   #1440c4;
+    --primary-light:  #e8f0fe;
+    --gold:           #c9922a;
+    --gold-light:     #f0b84a;
+    --accent:         #e8a830;
+    --danger:         #c0392b;
+    --danger-dark:    #921e1e;
+    --success:        #0e7a55;
+    --success-dark:   #085e3e;
+    --bg:             #eef0f6;
+    --card:           #ffffff;
+    --border:         #cdd4e4;
+    --text:           #0f1e3d;
+    --text-secondary: #4a5a7a;
+    --text-light:     #8a9aba;
+    --radius:         13px;
+    --radius-btn:     11px;
+    --shadow:         0 2px 0 #b8c2d8, 0 4px 12px rgba(15,30,61,0.09);
+    --shadow-md:      0 3px 0 #b0bcd4, 0 8px 20px rgba(15,30,61,0.13);
+    --shadow-lg:      0 4px 0 #a8b4cc, 0 14px 32px rgba(15,30,61,0.18);
   }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  body { font-family: 'DM Sans', 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
   /* HEADER */
   header {
-    background: var(--primary);
+    background: linear-gradient(135deg, #0f1e3d 0%, #1a3260 60%, #1d4ed8 100%);
     color: white;
     padding: 0 16px;
-    height: 56px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 4px 0 #08122a, 0 8px 24px rgba(15,30,61,0.4);
   }
   .header-left { display: flex; align-items: center; gap: 10px; }
-  .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
-  .logo span { color: var(--accent); }
+  .logo { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
+  .logo span { color: var(--gold-light); }
   .mode-badge {
     font-size: 11px;
-    background: rgba(255,255,255,0.2);
-    padding: 2px 8px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 3px 10px;
     border-radius: 20px;
-    font-weight: 600;
+    font-weight: 700;
+    letter-spacing: 0.5px;
   }
   .header-right { display: flex; align-items: center; gap: 8px; }
-  #user-info { font-size: 13px; opacity: 0.85; }
+  #user-info { font-size: 12px; opacity: 0.75; }
   .btn-icon {
-    background: rgba(255,255,255,0.15);
-    border: none;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
     color: white;
-    width: 34px;
-    height: 34px;
-    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
     cursor: pointer;
     font-size: 16px;
     display: flex;
@@ -78,26 +87,29 @@
     overflow-x: auto;
     scrollbar-width: none;
     position: sticky;
-    top: 56px;
+    top: 60px;
     z-index: 99;
+    box-shadow: 0 2px 0 #c0cade, 0 4px 10px rgba(15,30,61,0.07);
   }
   nav::-webkit-scrollbar { display: none; }
   .nav-btn {
     flex-shrink: 0;
-    padding: 14px 20px;
+    padding: 14px 16px;
     border: none;
     background: none;
     color: var(--text-secondary);
+    font-family: 'DM Sans', sans-serif;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     border-bottom: 3px solid transparent;
     transition: all 0.2s;
     display: flex;
     align-items: center;
     gap: 6px;
+    letter-spacing: 0.1px;
   }
-  .nav-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+  .nav-btn.active { color: var(--primary); border-bottom-color: var(--primary); background: linear-gradient(180deg, rgba(29,78,216,0.04) 0%, transparent 100%); }
   .nav-btn:hover:not(.active) { color: var(--text); background: var(--bg); }
 
   /* MAIN */
@@ -113,35 +125,48 @@
     padding: 20px;
     margin-bottom: 16px;
     box-shadow: var(--shadow);
+    transition: box-shadow 0.2s, transform 0.2s;
   }
   .card-title {
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 800;
     color: var(--text);
     margin-bottom: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
+    letter-spacing: 0.1px;
   }
+  .card-title::before { content: ''; display: block; width: 3px; height: 18px; background: var(--primary); border-radius: 2px; }
 
   /* FORMS */
   .form-group { margin-bottom: 14px; }
-  label { display: block; font-size: 12px; font-weight: 600; color: var(--text-secondary); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+  label {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
   input, select, textarea {
     width: 100%;
-    padding: 10px 12px;
+    padding: 11px 13px;
     border: 1.5px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
     color: var(--text);
-    background: var(--bg);
-    transition: border-color 0.2s;
-    font-family: inherit;
+    background: #f4f6fb;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-shadow: inset 0 2px 4px rgba(15,30,61,0.06);
   }
   input:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--primary);
     background: white;
+    box-shadow: inset 0 1px 2px rgba(15,30,61,0.04), 0 0 0 3px rgba(29,78,216,0.1);
   }
   textarea { resize: vertical; min-height: 80px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -153,40 +178,91 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
+    padding: 7px 14px;
     border: 1.5px solid var(--border);
     border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--text);
     transition: all 0.2s;
     user-select: none;
+    background: white;
+    box-shadow: 0 1px 0 #c0cade, 0 2px 6px rgba(15,30,61,0.07);
   }
   .checkbox-item input[type=checkbox] { display: none; }
-  .checkbox-item.checked { background: var(--primary-light); border-color: var(--primary); color: var(--primary); }
+  .checkbox-item.checked {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: 0 1px 0 #a0b4e0, 0 2px 6px rgba(29,78,216,0.15);
+  }
 
-  /* BUTTONS */
+  /* BUTTONS — 3D style */
   .btn {
-    padding: 10px 18px;
+    padding: 11px 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-btn);
+    font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: transform 0.1s, box-shadow 0.1s;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 7px;
+    letter-spacing: 0.1px;
+    position: relative;
+    user-select: none;
   }
-  .btn-primary { background: var(--primary); color: white; }
-  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-  .btn-danger { background: var(--danger); color: white; }
-  .btn-danger:hover { background: #dc2626; }
-  .btn-outline { background: transparent; border: 1.5px solid var(--border); color: var(--text); }
-  .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
-  .btn-success { background: var(--success); color: white; }
-  .btn-sm { padding: 6px 12px; font-size: 12px; }
+  .btn:active { transform: translateY(2px) !important; box-shadow: none !important; }
+
+  .btn-primary {
+    background: linear-gradient(160deg, #2558e8 0%, var(--primary-dark) 100%);
+    color: white;
+    box-shadow: 0 1px 0 #0d2e8a, 0 4px 0 #0a2270, 0 5px 14px rgba(20,64,196,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 1px 0 #0d2e8a, 0 5px 0 #0a2270, 0 8px 20px rgba(20,64,196,0.4); }
+
+  .btn-danger {
+    background: linear-gradient(160deg, #d94040 0%, var(--danger) 100%);
+    color: white;
+    box-shadow: 0 1px 0 #7a1414, 0 4px 0 var(--danger-dark), 0 5px 14px rgba(192,57,43,0.35);
+  }
+  .btn-danger:hover { transform: translateY(-1px); box-shadow: 0 1px 0 #7a1414, 0 5px 0 var(--danger-dark), 0 8px 20px rgba(192,57,43,0.4); }
+
+  .btn-success {
+    background: linear-gradient(160deg, #18a870 0%, var(--success) 100%);
+    color: white;
+    box-shadow: 0 1px 0 #064d33, 0 4px 0 var(--success-dark), 0 5px 14px rgba(14,122,85,0.35);
+  }
+  .btn-success:hover { transform: translateY(-1px); box-shadow: 0 1px 0 #064d33, 0 5px 0 var(--success-dark), 0 8px 20px rgba(14,122,85,0.4); }
+
+  .btn-warning {
+    background: linear-gradient(160deg, #e8a830 0%, var(--gold) 100%);
+    color: white;
+    box-shadow: 0 1px 0 #8c5810, 0 4px 0 #724808, 0 5px 14px rgba(201,146,42,0.35);
+  }
+  .btn-warning:hover { transform: translateY(-1px); box-shadow: 0 1px 0 #8c5810, 0 5px 0 #724808, 0 8px 20px rgba(201,146,42,0.4); }
+
+  .btn-outline {
+    background: linear-gradient(160deg, #ffffff 0%, #eef0f7 100%);
+    border: 1.5px solid var(--border);
+    color: var(--navy);
+    box-shadow: 0 1px 0 #b8c2d8, 0 3px 0 #a8b2cc, 0 5px 12px rgba(15,30,61,0.1);
+  }
+  .btn-outline:hover { transform: translateY(-1px); border-color: #a0b0d0; box-shadow: 0 1px 0 #b8c2d8, 0 4px 0 #a8b2cc, 0 8px 16px rgba(15,30,61,0.15); }
+
+  .btn-sm {
+    padding: 7px 13px;
+    font-size: 12px;
+    border-radius: 9px;
+  }
+  .btn-sm.btn-primary { box-shadow: 0 1px 0 #0d2e8a, 0 3px 0 #0a2270, 0 4px 10px rgba(20,64,196,0.3); }
+  .btn-sm.btn-danger  { box-shadow: 0 1px 0 #7a1414, 0 3px 0 var(--danger-dark), 0 4px 10px rgba(192,57,43,0.3); }
+  .btn-sm.btn-outline { box-shadow: 0 1px 0 #b8c2d8, 0 2px 0 #a8b2cc, 0 4px 8px rgba(15,30,61,0.08); }
+  .btn-sm.btn-success { box-shadow: 0 1px 0 #064d33, 0 3px 0 var(--success-dark), 0 4px 10px rgba(14,122,85,0.3); }
+  .btn-sm.btn-warning { box-shadow: 0 1px 0 #8c5810, 0 3px 0 #724808, 0 4px 10px rgba(201,146,42,0.3); }
   .btn-full { width: 100%; justify-content: center; }
 
   /* CLIENT LIST */
@@ -197,163 +273,119 @@
     padding: 16px;
     margin-bottom: 10px;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.18s;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 0 #c0cade, 0 4px 12px rgba(15,30,61,0.08);
   }
-  .client-card:hover { border-color: var(--primary); box-shadow: var(--shadow-md); transform: translateY(-1px); }
-  .client-name { font-weight: 700; font-size: 15px; color: var(--text); }
-  .client-meta { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
-  .client-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 6px; }
+  .client-card:hover { border-color: #a0b4d8; box-shadow: 0 3px 0 #b0bcd4, 0 8px 20px rgba(15,30,61,0.13); transform: translateY(-1px); }
+  .client-name { font-weight: 800; font-size: 15px; color: var(--text); }
+  .client-meta { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
+  .client-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 7px; }
   .tag {
     font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
   }
-  .tag-cam { background: #dbeafe; color: #1d4ed8; }
-  .tag-alarm { background: #fef9c3; color: #854d0e; }
-  .tag-fence { background: #d1fae5; color: #065f46; }
-  .tag-access { background: #ede9fe; color: #5b21b6; }
-  .tag-other { background: #f1f5f9; color: #475569; }
-  .client-actions { display: flex; gap: 6px; flex-shrink: 0; }
+  .tag-cam    { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .tag-alarm  { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+  .tag-fence  { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+  .tag-access { background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }
+  .tag-other  { background: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
 
   /* SEARCH */
-  .search-bar {
-    position: relative;
-    margin-bottom: 16px;
-  }
-  .search-bar input {
-    padding-left: 38px;
-  }
-  .search-icon {
-    position: absolute;
-    left: 12px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-light);
-    font-size: 16px;
-  }
+  .search-bar { position: relative; margin-bottom: 16px; }
+  .search-bar input { padding-left: 40px; }
+  .search-icon { position: absolute; left: 13px; top: 50%; transform: translateY(-50%); color: var(--text-light); font-size: 16px; }
 
   /* FAB */
   .fab {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    width: 56px;
-    height: 56px;
+    width: 58px;
+    height: 58px;
     border-radius: 50%;
-    background: var(--primary);
+    background: linear-gradient(160deg, #2558e8 0%, var(--primary-dark) 100%);
     color: white;
     border: none;
-    font-size: 24px;
+    font-size: 26px;
     cursor: pointer;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 2px 0 #0a2270, 0 6px 0 #071a58, 0 10px 24px rgba(20,64,196,0.45);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
+    transition: transform 0.15s, box-shadow 0.15s;
     z-index: 50;
   }
-  .fab:hover { background: var(--primary-dark); transform: scale(1.08); }
+  .fab:hover { transform: translateY(-2px); box-shadow: 0 2px 0 #0a2270, 0 8px 0 #071a58, 0 14px 30px rgba(20,64,196,0.5); }
+  .fab:active { transform: translateY(3px); box-shadow: 0 1px 0 #0a2270, 0 2px 0 #071a58, 0 4px 12px rgba(20,64,196,0.3); }
 
   /* MODAL */
   .modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(10,20,50,0.55);
     z-index: 200;
     overflow-y: auto;
     padding: 16px;
+    backdrop-filter: blur(2px);
   }
   .modal-overlay.open { display: flex; align-items: flex-start; justify-content: center; }
   .modal {
     background: var(--card);
-    border-radius: 16px;
-    padding: 24px;
+    border-radius: 18px;
+    padding: 26px;
     width: 100%;
     max-width: 600px;
     margin: auto;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 4px 0 #a8b4cc, 0 16px 48px rgba(15,30,61,0.25);
+    border: 1px solid var(--border);
   }
   .modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
   }
-  .modal-title { font-size: 18px; font-weight: 700; color: var(--text); }
+  .modal-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .modal-title::before { content: ''; display: block; width: 4px; height: 22px; background: var(--primary); border-radius: 2px; }
   .modal-close {
-    width: 32px; height: 32px;
-    border: none; background: var(--bg);
-    border-radius: 8px; cursor: pointer;
-    font-size: 18px; color: var(--text-secondary);
+    width: 34px; height: 34px;
+    border: 1.5px solid var(--border); background: var(--bg);
+    border-radius: 9px; cursor: pointer;
+    font-size: 16px; color: var(--text-secondary);
     display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 1px 0 #c0cade, 0 2px 6px rgba(15,30,61,0.07);
+    transition: all 0.15s;
   }
+  .modal-close:hover { background: #fee2e2; border-color: #fca5a5; color: var(--danger); }
 
   /* CALENDAR */
-  .calendar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  .calendar-month { font-size: 18px; font-weight: 700; color: var(--text); }
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 4px;
-  }
-  .cal-day-header {
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--text-secondary);
-    padding: 6px 0;
-    text-transform: uppercase;
-  }
-  .cal-day {
-    min-height: 70px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 4px;
-    cursor: pointer;
-    transition: all 0.15s;
-    background: var(--card);
-  }
-  .cal-day:hover { border-color: var(--primary); background: var(--primary-light); }
-  .cal-day.other-month { background: var(--bg); opacity: 0.5; }
+  .calendar-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .calendar-month { font-size: 18px; font-weight: 800; color: var(--text); }
+  .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-day-header { text-align: center; font-size: 11px; font-weight: 700; color: var(--text-secondary); padding: 6px 0; text-transform: uppercase; letter-spacing: 0.5px; }
+  .cal-day { min-height: 70px; border: 1px solid var(--border); border-radius: 9px; padding: 4px; cursor: pointer; transition: all 0.15s; background: var(--card); box-shadow: 0 1px 0 #c8d0e4; }
+  .cal-day:hover { border-color: var(--primary); background: var(--primary-light); box-shadow: 0 2px 0 #a0b4e0, 0 4px 10px rgba(29,78,216,0.12); }
+  .cal-day.other-month { background: var(--bg); opacity: 0.5; box-shadow: none; }
   .cal-day.today { border-color: var(--primary); border-width: 2px; }
-  .cal-day-num {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .cal-day.today .cal-day-num {
-    background: var(--primary);
-    color: white;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-  }
-  .cal-event {
-    font-size: 10px;
-    padding: 1px 4px;
-    border-radius: 4px;
-    margin-bottom: 1px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 600;
-  }
+  .cal-day-num { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .cal-day.today .cal-day-num { background: var(--primary); color: white; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+  .cal-event { font-size: 10px; padding: 2px 5px; border-radius: 5px; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-weight: 700; }
   .ev-mant { background: #dbeafe; color: #1d4ed8; }
   .ev-venta { background: #d1fae5; color: #065f46; }
   .ev-rep { background: #fee2e2; color: #991b1b; }
@@ -366,20 +398,15 @@
     display: flex;
     gap: 12px;
     align-items: flex-start;
-    padding: 12px;
-    border-radius: 8px;
+    padding: 13px;
+    border-radius: 10px;
     border: 1px solid var(--border);
     background: var(--card);
+    box-shadow: 0 1px 0 #c8d0e4, 0 3px 8px rgba(15,30,61,0.06);
   }
-  .upcoming-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-top: 4px;
-    flex-shrink: 0;
-  }
+  .upcoming-dot { width: 10px; height: 10px; border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
   .upcoming-text { flex: 1; }
-  .upcoming-title { font-size: 13px; font-weight: 600; color: var(--text); }
+  .upcoming-title { font-size: 13px; font-weight: 700; color: var(--text); }
   .upcoming-meta { font-size: 12px; color: var(--text-secondary); }
 
   /* STATS */
@@ -389,19 +416,21 @@
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 16px;
+    padding: 18px 14px;
     text-align: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 2px 0 #c0cade, 0 4px 0 #b4bfd8, 0 6px 14px rgba(15,30,61,0.09);
+    transition: transform 0.15s, box-shadow 0.15s;
   }
-  .stat-num { font-size: 28px; font-weight: 800; color: var(--primary); }
-  .stat-label { font-size: 12px; color: var(--text-secondary); font-weight: 600; margin-top: 2px; }
+  .stat-card:hover { transform: translateY(-1px); box-shadow: 0 3px 0 #c0cade, 0 6px 0 #b4bfd8, 0 10px 20px rgba(15,30,61,0.13); }
+  .stat-num { font-size: 32px; font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 11px; color: var(--text-secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 
   /* LOGIN */
   #login-screen {
     display: none;
     position: fixed;
     inset: 0;
-    background: var(--primary);
+    background: linear-gradient(135deg, #0f1e3d 0%, #1a3260 60%, #1d4ed8 100%);
     z-index: 999;
     align-items: center;
     justify-content: center;
@@ -410,44 +439,29 @@
   #login-screen.show { display: flex; }
   .login-box {
     background: white;
-    border-radius: 20px;
-    padding: 32px 28px;
+    border-radius: 22px;
+    padding: 36px 30px;
     width: 100%;
     max-width: 380px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 6px 0 #08122a, 0 20px 50px rgba(10,20,50,0.5);
   }
-  .login-logo { font-size: 28px; font-weight: 800; color: var(--primary); text-align: center; margin-bottom: 6px; }
-  .login-logo span { color: var(--accent); }
-  .login-sub { text-align: center; font-size: 13px; color: var(--text-secondary); margin-bottom: 24px; }
+  .login-logo { font-size: 30px; font-weight: 800; color: var(--navy); text-align: center; margin-bottom: 6px; }
+  .login-logo span { color: var(--gold); }
+  .login-sub { text-align: center; font-size: 13px; color: var(--text-secondary); margin-bottom: 28px; }
   .login-error { color: var(--danger); font-size: 13px; text-align: center; margin-bottom: 12px; display: none; }
 
   /* AGENDA ITEMS */
-  .agenda-item {
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 8px;
-    background: var(--bg);
-  }
+  .agenda-item { border: 1px solid var(--border); border-radius: 10px; padding: 12px; margin-bottom: 8px; background: var(--bg); box-shadow: 0 1px 0 #c8d0e4; }
   .agenda-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
 
   /* SECTION HEADER */
-  .section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 16px;
-  }
-  .section-title { font-size: 20px; font-weight: 800; color: var(--text); }
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .section-title { font-size: 20px; font-weight: 800; color: var(--text); letter-spacing: -0.3px; }
 
   /* EMPTY STATE */
-  .empty {
-    text-align: center;
-    padding: 40px 20px;
-    color: var(--text-secondary);
-  }
+  .empty { text-align: center; padding: 40px 20px; color: var(--text-secondary); }
   .empty-icon { font-size: 48px; margin-bottom: 12px; }
-  .empty-text { font-size: 15px; font-weight: 600; }
+  .empty-text { font-size: 15px; font-weight: 700; }
   .empty-sub { font-size: 13px; margin-top: 4px; }
 
   /* TOAST */
@@ -456,37 +470,162 @@
     bottom: 90px;
     left: 50%;
     transform: translateX(-50%) translateY(100px);
-    background: #1e293b;
+    background: var(--navy);
     color: white;
-    padding: 12px 20px;
-    border-radius: 10px;
+    padding: 13px 22px;
+    border-radius: 12px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     z-index: 999;
     transition: transform 0.3s;
     white-space: nowrap;
+    box-shadow: 0 4px 0 #06101f, 0 8px 20px rgba(10,20,50,0.4);
   }
   #toast.show { transform: translateX(-50%) translateY(0); }
 
   /* DETAIL VIEW */
-  .detail-section {
-    background: var(--bg);
-    border-radius: 8px;
-    padding: 12px;
-    margin-bottom: 10px;
-  }
-  .detail-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin-bottom: 8px; }
-  .detail-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+  .detail-section { background: var(--bg); border-radius: 10px; padding: 13px; margin-bottom: 10px; border: 1px solid var(--border); }
+  .detail-section-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-secondary); margin-bottom: 8px; }
+  .detail-row { display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; }
   .detail-key { color: var(--text-secondary); }
-  .detail-val { font-weight: 600; color: var(--text); text-align: right; }
+  .detail-val { font-weight: 700; color: var(--text); text-align: right; }
 
-  /* DIVIDER */
   .divider { height: 1px; background: var(--border); margin: 16px 0; }
-
   .mt-8 { margin-top: 8px; }
   .mt-12 { margin-top: 12px; }
-  .flex-end { display: flex; justify-content: flex-end; gap: 8px; }
-  .color-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 4px; }
+  .flex-end { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+
+  /* ===== PRESUPUESTOS ===== */
+  .presup-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.18s;
+    box-shadow: 0 2px 0 #c0cade, 0 4px 0 #b4bfd8, 0 6px 14px rgba(15,30,61,0.08);
+  }
+  .presup-card:hover { border-color: #a0b4d8; box-shadow: 0 3px 0 #b0bcd4, 0 6px 0 #a8b4cc, 0 10px 22px rgba(15,30,61,0.13); transform: translateY(-1px); }
+  .presup-header-row { display: flex; justify-content: space-between; align-items: flex-start; }
+  .presup-client { font-weight: 800; font-size: 15px; color: var(--text); }
+  .presup-total { font-size: 20px; font-weight: 800; color: var(--navy); }
+  .presup-meta { font-size: 12px; color: var(--text-secondary); margin-top: 3px; }
+
+  .presup-item-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 13px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    background: #f4f6fb;
+    box-shadow: 0 1px 0 #c8d0e4;
+  }
+  .presup-item-info { flex: 1; }
+  .presup-item-name { font-size: 13px; font-weight: 700; color: var(--text); }
+  .presup-item-desc { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+  .presup-item-price { font-size: 14px; font-weight: 800; color: var(--navy); white-space: nowrap; }
+  .presup-item-original { font-size: 11px; color: var(--text-light); text-decoration: line-through; }
+  .adj-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #fef3c7;
+    color: #92400e;
+    border: 1px solid #fde68a;
+    white-space: nowrap;
+  }
+  .presup-item-qty { display: flex; align-items: center; gap: 6px; }
+  .qty-btn {
+    width: 28px; height: 28px;
+    border-radius: 7px;
+    border: 1.5px solid var(--border);
+    background: white;
+    font-size: 16px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: var(--text);
+    box-shadow: 0 1px 0 #c0cade, 0 2px 6px rgba(15,30,61,0.07);
+    transition: all 0.15s;
+  }
+  .qty-btn:hover { border-color: var(--primary); color: var(--primary); }
+  .qty-btn:active { transform: translateY(1px); box-shadow: none; }
+  .qty-val { font-size: 14px; font-weight: 800; min-width: 20px; text-align: center; }
+
+  .adj-select {
+    padding: 5px 9px;
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    border: 1.5px solid var(--border);
+    border-radius: 7px;
+    color: var(--text);
+    background: white;
+    width: auto;
+    box-shadow: 0 1px 0 #c0cade;
+  }
+  .adj-select:focus { border-color: var(--accent); outline: none; }
+
+  .product-search-wrap { position: relative; }
+  .product-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; right: 0;
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    box-shadow: 0 4px 0 #a0b4e0, 0 12px 32px rgba(15,30,61,0.2);
+    z-index: 300;
+    max-height: 260px;
+    overflow-y: auto;
+  }
+  .prod-option { padding: 11px 14px; cursor: pointer; border-bottom: 1px solid var(--border); transition: background 0.15s; }
+  .prod-option:last-child { border-bottom: none; }
+  .prod-option:hover { background: var(--primary-light); }
+  .prod-option-name { font-size: 13px; font-weight: 700; color: var(--text); }
+  .prod-option-desc { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+  .prod-option-price { font-size: 13px; font-weight: 800; color: var(--primary); margin-top: 2px; }
+
+  .presup-total-box {
+    background: linear-gradient(135deg, #e8f0fe 0%, #dce8ff 100%);
+    border: 2px solid #b8d0f8;
+    border-radius: 12px;
+    padding: 15px 17px;
+    margin-top: 12px;
+    box-shadow: 0 2px 0 #a0b8e8, 0 4px 12px rgba(29,78,216,0.1);
+  }
+  .presup-total-row { display: flex; justify-content: space-between; align-items: center; font-size: 14px; margin-bottom: 6px; }
+  .presup-total-row:last-child { margin-bottom: 0; }
+  .presup-grand-total { font-size: 24px; font-weight: 800; color: var(--navy); }
+  .presup-subtotal { color: var(--text-secondary); }
+
+  .prod-cat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 0 #c0cade, 0 4px 10px rgba(15,30,61,0.07);
+    transition: all 0.15s;
+  }
+  .prod-cat-card:hover { transform: translateY(-1px); box-shadow: 0 3px 0 #b8c4d8, 0 7px 16px rgba(15,30,61,0.11); }
+  .prod-cat-name { font-weight: 800; font-size: 14px; color: var(--text); }
+  .prod-cat-desc { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+  .prod-cat-price { font-size: 17px; font-weight: 800; color: var(--navy); margin-right: 10px; }
+
+  .tab-bar { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 16px; }
+  .tab-btn { padding: 10px 18px; border: none; background: none; font-size: 13px; font-weight: 700; color: var(--text-secondary); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+  .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+  .dynamic-fields { background: var(--bg); border-radius: 10px; padding: 12px; margin-top: 4px; border: 1px solid var(--border); }
+
+  .total-adj-row { display: flex; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+  .total-adj-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); }
 </style>
 </head>
 <body>
@@ -530,6 +669,8 @@
 <nav>
   <button class="nav-btn active" onclick="showSection('dashboard', this)">🏠 Inicio</button>
   <button class="nav-btn" onclick="showSection('clientes', this)">👤 Clientes</button>
+  <button class="nav-btn" onclick="showSection('presupuestos', this)">💰 Presupuestos</button>
+  <button class="nav-btn" onclick="showSection('catalogo', this)">📦 Catálogo</button>
   <button class="nav-btn" onclick="showSection('calendario', this)">📅 Agenda</button>
 </nav>
 
@@ -555,17 +696,16 @@
         <div class="stat-label">Eventos este mes</div>
       </div>
     </div>
-
     <div class="card">
       <div class="card-title">📋 Próximos eventos</div>
       <div id="dash-upcoming" class="upcoming-list">
-        <div class="empty" style="padding:20px">
-          <div class="empty-icon">📅</div>
-          <div class="empty-sub">Sin eventos próximos</div>
-        </div>
+        <div class="empty" style="padding:20px"><div class="empty-icon">📅</div><div class="empty-sub">Sin eventos próximos</div></div>
       </div>
     </div>
-
+    <div class="card">
+      <div class="card-title">💰 Últimos presupuestos</div>
+      <div id="dash-presup"></div>
+    </div>
     <div class="card">
       <div class="card-title">👤 Últimos clientes</div>
       <div id="dash-recent"></div>
@@ -585,6 +725,32 @@
     <div id="client-list"></div>
   </div>
 
+  <!-- PRESUPUESTOS -->
+  <div class="section" id="section-presupuestos">
+    <div class="section-header">
+      <div class="section-title">Presupuestos</div>
+      <button class="btn btn-primary btn-sm" onclick="openPresupModal()">+ Nuevo</button>
+    </div>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-presup" placeholder="Buscar por cliente..." oninput="renderPresupuestos()">
+    </div>
+    <div id="presup-list"></div>
+  </div>
+
+  <!-- CATÁLOGO -->
+  <div class="section" id="section-catalogo">
+    <div class="section-header">
+      <div class="section-title">Catálogo de productos</div>
+      <button class="btn btn-primary btn-sm" onclick="openProductModal()">+ Nuevo</button>
+    </div>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="search-prod" placeholder="Buscar producto..." oninput="renderCatalogo()">
+    </div>
+    <div id="catalogo-list"></div>
+  </div>
+
   <!-- CALENDARIO -->
   <div class="section" id="section-calendario">
     <div class="card">
@@ -596,7 +762,6 @@
       <div class="calendar-grid" id="cal-headers"></div>
       <div class="calendar-grid" id="cal-grid" style="margin-top:4px"></div>
     </div>
-
     <div class="card">
       <div class="card-title">📋 Todos los eventos</div>
       <div id="all-events-list"></div>
@@ -608,16 +773,14 @@
 <button class="fab" id="main-fab" onclick="fabAction()">+</button>
 <div id="toast"></div>
 
-<!-- MODAL CLIENTE -->
+<!-- ===================== MODALES CLIENTES ===================== -->
 <div class="modal-overlay" id="modal-client">
   <div class="modal">
     <div class="modal-header">
       <div class="modal-title" id="modal-client-title">Nuevo cliente</div>
       <button class="modal-close" onclick="closeModal('modal-client')">✕</button>
     </div>
-
     <input type="hidden" id="client-id">
-
     <div class="form-group">
       <label>Nombre / Empresa *</label>
       <input type="text" id="c-name" placeholder="Ej: Juan Pérez">
@@ -636,40 +799,27 @@
       <label>Dirección</label>
       <input type="text" id="c-address" placeholder="Calle 1234, Localidad">
     </div>
-
     <div class="divider"></div>
     <div class="form-group">
       <label>Sistemas instalados</label>
       <div class="checkbox-group" id="systems-check">
-        <label class="checkbox-item" onclick="toggleCheck(this)">
-          <input type="checkbox" value="camaras"> 📷 Cámaras
-        </label>
-        <label class="checkbox-item" onclick="toggleCheck(this)">
-          <input type="checkbox" value="alarma"> 🔔 Alarma
-        </label>
-        <label class="checkbox-item" onclick="toggleCheck(this)">
-          <input type="checkbox" value="cerco"> ⚡ Cerco eléctrico
-        </label>
-        <label class="checkbox-item" onclick="toggleCheck(this)">
-          <input type="checkbox" value="acceso"> 🚪 Control de acceso
-        </label>
-        <label class="checkbox-item" onclick="toggleCheck(this)">
-          <input type="checkbox" value="otro"> 🔧 Otros
-        </label>
+        <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox" value="camaras"> 📷 Cámaras</label>
+        <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox" value="alarma"> 🔔 Alarma</label>
+        <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox" value="cerco"> ⚡ Cerco eléctrico</label>
+        <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox" value="acceso"> 🚪 Control de acceso</label>
+        <label class="checkbox-item" onclick="toggleCheck(this)"><input type="checkbox" value="otro"> 🔧 Otros</label>
       </div>
     </div>
     <div class="form-group">
       <label>Observaciones / Detalle del sistema</label>
       <textarea id="c-notes" placeholder="Marca del DVR, cantidad de cámaras, modelo de panel, etc."></textarea>
     </div>
-
     <div class="divider"></div>
     <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
       <label style="margin:0; font-size:13px; font-weight:700; text-transform:none; letter-spacing:0; color:var(--text)">🗓 Agenda de visitas</label>
       <button class="btn btn-outline btn-sm" onclick="addAgendaItem()">+ Agregar</button>
     </div>
     <div id="agenda-items"></div>
-
     <div class="divider"></div>
     <div class="flex-end">
       <button class="btn btn-outline" onclick="closeModal('modal-client')">Cancelar</button>
@@ -678,7 +828,7 @@
   </div>
 </div>
 
-<!-- MODAL VER CLIENTE -->
+<!-- Ver cliente -->
 <div class="modal-overlay" id="modal-view">
   <div class="modal">
     <div class="modal-header">
@@ -694,7 +844,7 @@
   </div>
 </div>
 
-<!-- MODAL EVENTO CALENDARIO -->
+<!-- ===================== MODAL EVENTO ===================== -->
 <div class="modal-overlay" id="modal-event">
   <div class="modal">
     <div class="modal-header">
@@ -713,23 +863,11 @@
       </select>
     </div>
     <div class="form-row">
-      <div class="form-group">
-        <label>Fecha</label>
-        <input type="date" id="ev-date">
-      </div>
-      <div class="form-group">
-        <label>Hora</label>
-        <input type="time" id="ev-time">
-      </div>
+      <div class="form-group"><label>Fecha</label><input type="date" id="ev-date"></div>
+      <div class="form-group"><label>Hora</label><input type="time" id="ev-time"></div>
     </div>
-    <div class="form-group">
-      <label>Cliente</label>
-      <input type="text" id="ev-client" placeholder="Nombre del cliente">
-    </div>
-    <div class="form-group">
-      <label>Descripción</label>
-      <textarea id="ev-desc" placeholder="Detalle del evento..."></textarea>
-    </div>
+    <div class="form-group"><label>Cliente</label><input type="text" id="ev-client" placeholder="Nombre del cliente"></div>
+    <div class="form-group"><label>Descripción</label><textarea id="ev-desc" placeholder="Detalle del evento..."></textarea></div>
     <div class="flex-end mt-12">
       <button class="btn btn-outline" onclick="closeModal('modal-event')">Cancelar</button>
       <button class="btn btn-primary" onclick="saveEvent()">💾 Guardar</button>
@@ -737,11 +875,162 @@
   </div>
 </div>
 
-<!-- FIREBASE -->
+<!-- ===================== MODAL PRODUCTO (CATÁLOGO) ===================== -->
+<div class="modal-overlay" id="modal-product">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-product-title">Nuevo producto</div>
+      <button class="modal-close" onclick="closeModal('modal-product')">✕</button>
+    </div>
+    <input type="hidden" id="prod-id">
+    <div class="form-group">
+      <label>Tipo de producto *</label>
+      <select id="prod-type" onchange="updateProductFields()">
+        <option value="camara">📷 Cámara</option>
+        <option value="alarma">🔔 Alarma / Sensor</option>
+        <option value="dvr">🖥 DVR / NVR</option>
+        <option value="acceso">🚪 Control de acceso</option>
+        <option value="cerco">⚡ Cerco eléctrico</option>
+        <option value="manoobra">🔧 Mano de obra</option>
+        <option value="otro">📦 Otro</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Marca *</label><input type="text" id="prod-marca" placeholder="Ej: Hikvision"></div>
+      <div class="form-group"><label>Nombre / Modelo *</label><input type="text" id="prod-nombre" placeholder="Ej: Domo 4MP"></div>
+    </div>
+
+    <!-- Campos dinámicos por tipo -->
+    <div id="dynamic-prod-fields"></div>
+
+    <div class="form-group">
+      <label>Precio base ($) *</label>
+      <input type="number" id="prod-precio" placeholder="0.00" min="0" step="0.01">
+    </div>
+    <div class="form-group">
+      <label>Notas / Descripción adicional</label>
+      <input type="text" id="prod-notas" placeholder="Descripción extra (opcional)">
+    </div>
+    <div class="flex-end mt-12">
+      <button class="btn btn-outline" onclick="closeModal('modal-product')">Cancelar</button>
+      <button class="btn btn-primary" onclick="saveProduct()">💾 Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL PRESUPUESTO ===================== -->
+<div class="modal-overlay" id="modal-presup">
+  <div class="modal" style="max-width:680px">
+    <div class="modal-header">
+      <div class="modal-title" id="modal-presup-title">Nuevo presupuesto</div>
+      <button class="modal-close" onclick="closeModal('modal-presup')">✕</button>
+    </div>
+    <input type="hidden" id="presup-id">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Cliente *</label>
+        <input type="text" id="presup-client" placeholder="Nombre del cliente">
+      </div>
+      <div class="form-group">
+        <label>Fecha</label>
+        <input type="date" id="presup-date">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Notas del presupuesto</label>
+      <input type="text" id="presup-notes" placeholder="Ej: Instalación en planta baja y primer piso">
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Buscador de productos -->
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px">
+      <label style="margin:0; font-size:13px; font-weight:700; text-transform:none; letter-spacing:0; color:var(--text)">🛒 Ítems del presupuesto</label>
+      <button class="btn btn-outline btn-sm" onclick="showProductSearch()">+ Agregar ítem</button>
+    </div>
+
+    <!-- Buscador inline -->
+    <div id="prod-search-container" style="display:none; margin-bottom:12px;">
+      <div class="product-search-wrap">
+        <input type="text" id="prod-search-input" placeholder="Buscar producto: marca, tipo, megapíxeles..." oninput="searchProducts()" autocomplete="off">
+        <div class="product-dropdown" id="prod-dropdown" style="display:none"></div>
+      </div>
+      <button class="btn btn-outline btn-sm" style="margin-top:6px" onclick="hideProductSearch()">✕ Cancelar</button>
+    </div>
+
+    <div id="presup-items-list"></div>
+
+    <!-- Total box -->
+    <div class="presup-total-box" id="presup-total-box">
+      <div class="presup-total-row">
+        <span class="presup-subtotal">Subtotal</span>
+        <span id="presup-subtotal-val" style="font-weight:600">$0</span>
+      </div>
+      <div class="total-adj-row">
+        <span class="total-adj-label">Ajuste al total:</span>
+        <select class="adj-select" id="total-adj" onchange="recalcPresup()">
+          <option value="0">Sin ajuste</option>
+          <option value="10">+10%</option>
+          <option value="20">+20%</option>
+          <option value="30">+30%</option>
+        </select>
+        <span id="total-adj-badge" style="display:none" class="adj-badge"></span>
+      </div>
+      <div class="presup-total-row" style="margin-top:10px; border-top:1px solid rgba(26,86,219,0.2); padding-top:10px">
+        <span style="font-size:15px; font-weight:700; color:var(--primary)">TOTAL</span>
+        <span class="presup-grand-total" id="presup-grand-total">$0</span>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="flex-end">
+      <button class="btn btn-outline" onclick="closeModal('modal-presup')">Cancelar</button>
+      <button class="btn btn-primary" onclick="savePresup()">💾 Guardar presupuesto</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal ver presupuesto -->
+<div class="modal-overlay" id="modal-view-presup">
+  <div class="modal" style="max-width:680px">
+    <div class="modal-header">
+      <div class="modal-title" id="view-presup-title">Presupuesto</div>
+      <button class="modal-close" onclick="closeModal('modal-view-presup')">✕</button>
+    </div>
+    <div id="view-presup-content"></div>
+    <div class="flex-end mt-12">
+      <button class="btn btn-danger btn-sm" onclick="deleteCurrentPresup()">🗑 Eliminar</button>
+      <button class="btn btn-warning" onclick="generatePresupPDF()">📄 Generar PDF</button>
+      <button class="btn btn-success" onclick="sendPresupWA()">📲 WhatsApp</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-view-presup')">Cerrar</button>
+      <button class="btn btn-primary" onclick="editCurrentPresup()">✏️ Editar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== MODAL PDF ===================== -->
+<div id="pdf-overlay" style="display:none;position:fixed;inset:0;background:white;z-index:500;overflow-y:auto;padding:24px">
+  <div class="no-print" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
+    <button onclick="closePDF()" style="padding:10px 18px;background:#f1f5f9;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer">✕ Cerrar</button>
+    <button onclick="window.print()" style="padding:10px 22px;background:#1a56db;color:white;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer">🖨️ Guardar PDF</button>
+  </div>
+  <div id="pdf-content"></div>
+</div>
+
+<style>
+@media print {
+  body > *:not(#pdf-overlay) { display: none !important; }
+  #pdf-overlay { position:static !important; padding:0 !important; }
+  .no-print { display:none !important; }
+}
+</style>
+
+<!-- ===================== FIREBASE ===================== -->
 <script type="module">
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
-import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot, query, where } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDgpyUd8AExCLy29fwkjc5-mEALA57Wtig",
@@ -753,16 +1042,13 @@ const firebaseConfig = {
 };
 
 let app, auth, db;
-let firebaseReady = false;
-
 try {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
   db = getFirestore(app);
-  firebaseReady = true;
   window._auth = auth;
   window._db = db;
-  window._firestore = { collection, doc, setDoc, deleteDoc, onSnapshot, query, where };
+  window._firestore = { collection, doc, setDoc, deleteDoc, onSnapshot };
   window._fbReady = true;
 
   onAuthStateChanged(auth, user => {
@@ -775,13 +1061,10 @@ try {
       loadFirestoreData(user.uid);
     } else {
       window._currentUser = null;
-      if (!window._localMode) {
-        document.getElementById('login-screen').classList.add('show');
-      }
+      if (!window._localMode) document.getElementById('login-screen').classList.add('show');
     }
   });
 } catch(e) {
-  console.log('Firebase no disponible, modo local activado.');
   window._fbReady = false;
   window._localMode = true;
   initApp();
@@ -792,9 +1075,8 @@ window.doLogin = async () => {
   const pass = document.getElementById('login-password').value;
   const errEl = document.getElementById('login-error');
   errEl.style.display = 'none';
-  try {
-    await signInWithEmailAndPassword(auth, email, pass);
-  } catch(e) {
+  try { await signInWithEmailAndPassword(auth, email, pass); }
+  catch(e) {
     errEl.textContent = 'Error: ' + (e.code === 'auth/invalid-credential' ? 'Email o contraseña incorrectos' : e.message);
     errEl.style.display = 'block';
   }
@@ -806,12 +1088,8 @@ window.doRegister = async () => {
   const errEl = document.getElementById('login-error');
   errEl.style.display = 'none';
   if (!email || !pass) { errEl.textContent = 'Completá email y contraseña'; errEl.style.display = 'block'; return; }
-  try {
-    await createUserWithEmailAndPassword(auth, email, pass);
-  } catch(e) {
-    errEl.textContent = 'Error: ' + e.message;
-    errEl.style.display = 'block';
-  }
+  try { await createUserWithEmailAndPassword(auth, email, pass); }
+  catch(e) { errEl.textContent = 'Error: ' + e.message; errEl.style.display = 'block'; }
 };
 
 window.doLogout = async () => {
@@ -822,55 +1100,59 @@ window.doLogout = async () => {
 function loadFirestoreData(uid) {
   const { collection, onSnapshot } = window._firestore;
   const db = window._db;
-
   onSnapshot(collection(db, `users/${uid}/clients`), snap => {
     window._clients = {};
     snap.forEach(d => { window._clients[d.id] = d.data(); });
     renderAll();
   });
-
   onSnapshot(collection(db, `users/${uid}/events`), snap => {
     window._events = {};
     snap.forEach(d => { window._events[d.id] = d.data(); });
     renderAll();
   });
+  onSnapshot(collection(db, `users/${uid}/products`), snap => {
+    window._products = {};
+    snap.forEach(d => { window._products[d.id] = d.data(); });
+    renderAll();
+  });
+  onSnapshot(collection(db, `users/${uid}/presupuestos`), snap => {
+    window._presupuestos = {};
+    snap.forEach(d => { window._presupuestos[d.id] = d.data(); });
+    renderAll();
+  });
 }
 
-window._saveClientToFirestore = async (id, data) => {
+// CRUD helpers
+window._saveToFS = async (col, id, data) => {
   const { doc, setDoc } = window._firestore;
   const uid = window._currentUser.uid;
-  await setDoc(doc(window._db, `users/${uid}/clients/${id}`), data);
+  await setDoc(doc(window._db, `users/${uid}/${col}/${id}`), data);
 };
-
-window._deleteClientFromFirestore = async (id) => {
+window._deleteFromFS = async (col, id) => {
   const { doc, deleteDoc } = window._firestore;
   const uid = window._currentUser.uid;
-  await deleteDoc(doc(window._db, `users/${uid}/clients/${id}`));
+  await deleteDoc(doc(window._db, `users/${uid}/${col}/${id}`));
 };
-
-window._saveEventToFirestore = async (id, data) => {
-  const { doc, setDoc } = window._firestore;
-  const uid = window._currentUser.uid;
-  await setDoc(doc(window._db, `users/${uid}/events/${id}`), data);
-};
-
-window._deleteEventFromFirestore = async (id) => {
-  const { doc, deleteDoc } = window._firestore;
-  const uid = window._currentUser.uid;
-  await deleteDoc(doc(window._db, `users/${uid}/events/${id}`));
-};
-
+// Keep old names for compat
+window._saveClientToFirestore = (id, d) => window._saveToFS('clients', id, d);
+window._deleteClientFromFirestore = (id) => window._deleteFromFS('clients', id);
+window._saveEventToFirestore = (id, d) => window._saveToFS('events', id, d);
+window._deleteEventFromFirestore = (id) => window._deleteFromFS('events', id);
 </script>
 
+<!-- ===================== APP JS ===================== -->
 <script>
-// === DATA ===
 window._clients = {};
 window._events = {};
+window._products = {};
+window._presupuestos = {};
 window._localMode = false;
 window._currentUser = null;
 window._fbReady = false;
 window._currentViewId = null;
+window._currentViewPresupId = null;
 window._calDate = new Date();
+window._presupItems = []; // items del presupuesto en edición
 
 function getLS(k) { try { return JSON.parse(localStorage.getItem(k)) || {}; } catch { return {}; } }
 function setLS(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch {} }
@@ -879,24 +1161,43 @@ function initApp() {
   if (window._localMode) {
     window._clients = getLS('sp_clients');
     window._events = getLS('sp_events');
+    window._products = getLS('sp_products');
+    window._presupuestos = getLS('sp_presupuestos');
     document.getElementById('mode-badge').textContent = 'LOCAL';
     document.getElementById('user-info').textContent = 'Modo local';
     document.getElementById('login-screen').classList.remove('show');
   }
   renderAll();
 }
-
-window.enterLocalMode = () => {
-  window._localMode = true;
-  initApp();
-};
+window.enterLocalMode = () => { window._localMode = true; initApp(); };
 
 function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2); }
+function formatMoney(n) { return '$' + Number(n||0).toLocaleString('es-AR', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+function formatDate(str) { if (!str) return ''; const [y,m,d] = str.split('-'); return `${d}/${m}/${y}`; }
 
 function renderAll() {
   renderClients();
   renderDashboard();
   renderCalendar();
+  renderCatalogo();
+  renderPresupuestos();
+}
+
+async function persist(col, obj) {
+  if (window._localMode) {
+    setLS('sp_' + col, window['_' + col]);
+  } else if (window._currentUser) {
+    try { await window._saveToFS(col, obj.id, obj); }
+    catch(e) { console.error(e); showToast('⚠️ Error al guardar en nube'); }
+  }
+}
+async function removeFromStore(col, id) {
+  if (window._localMode) {
+    setLS('sp_' + col, window['_' + col]);
+  } else if (window._currentUser) {
+    try { await window._deleteFromFS(col, id); }
+    catch(e) { console.error(e); }
+  }
 }
 
 // === NAV ===
@@ -905,7 +1206,8 @@ function showSection(id, btn) {
   document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('section-' + id).classList.add('active');
   if (btn) btn.classList.add('active');
-  document.getElementById('main-fab').style.display = id === 'clientes' ? 'flex' : (id === 'calendario' ? 'flex' : 'none');
+  const showFab = ['clientes','presupuestos','catalogo','calendario'].includes(id);
+  document.getElementById('main-fab').style.display = showFab ? 'flex' : 'none';
 }
 window.showSection = showSection;
 
@@ -913,6 +1215,8 @@ function fabAction() {
   const active = document.querySelector('.section.active');
   if (active.id === 'section-clientes') openClientModal();
   else if (active.id === 'section-calendario') openEventModal(null);
+  else if (active.id === 'section-presupuestos') openPresupModal();
+  else if (active.id === 'section-catalogo') openProductModal();
 }
 window.fabAction = fabAction;
 
@@ -920,56 +1224,59 @@ window.fabAction = fabAction;
 function renderDashboard() {
   const clients = Object.values(window._clients);
   const events = Object.values(window._events);
+  const presups = Object.values(window._presupuestos);
   document.getElementById('stat-total').textContent = clients.length;
   document.getElementById('stat-cam').textContent = clients.filter(c => c.systems && c.systems.includes('camaras')).length;
   document.getElementById('stat-alarm').textContent = clients.filter(c => c.systems && c.systems.includes('alarma')).length;
-
   const now = new Date();
   const thisMonth = events.filter(e => { const d = new Date(e.date); return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear(); });
   document.getElementById('stat-eventos').textContent = thisMonth.length;
 
-  // Upcoming
   const upcoming = events
     .filter(e => new Date(e.date) >= new Date(now.toDateString()))
     .sort((a,b) => new Date(a.date) - new Date(b.date))
     .slice(0, 5);
-
   const upEl = document.getElementById('dash-upcoming');
-  if (upcoming.length === 0) {
-    upEl.innerHTML = '<div class="empty" style="padding:20px"><div class="empty-icon">📅</div><div class="empty-sub">Sin eventos próximos</div></div>';
-  } else {
-    const colors = { mant:'#3b82f6', venta:'#10b981', rep:'#ef4444', amp:'#8b5cf6', otro:'#94a3b8' };
-    upEl.innerHTML = upcoming.map(e => `
+  const colors = { mant:'#3b82f6', venta:'#10b981', rep:'#ef4444', amp:'#8b5cf6', otro:'#94a3b8' };
+  upEl.innerHTML = upcoming.length === 0
+    ? '<div class="empty" style="padding:20px"><div class="empty-icon">📅</div><div class="empty-sub">Sin eventos próximos</div></div>'
+    : upcoming.map(e => `
       <div class="upcoming-item">
         <div class="upcoming-dot" style="background:${colors[e.type]||'#94a3b8'}"></div>
         <div class="upcoming-text">
-          <div class="upcoming-title">${e.client || 'Sin cliente'} — ${typeLabel(e.type)}</div>
-          <div class="upcoming-meta">${formatDate(e.date)}${e.time ? ' · ' + e.time : ''}${e.desc ? ' · ' + e.desc : ''}</div>
+          <div class="upcoming-title">${e.client||'Sin cliente'} — ${typeLabel(e.type)}</div>
+          <div class="upcoming-meta">${formatDate(e.date)}${e.time?' · '+e.time:''}${e.desc?' · '+e.desc:''}</div>
         </div>
       </div>`).join('');
-  }
 
-  // Recent clients
+  // últimos presupuestos
+  const lastPresups = presups.sort((a,b)=>(b.createdAt||0)-(a.createdAt||0)).slice(0,3);
+  const dpEl = document.getElementById('dash-presup');
+  dpEl.innerHTML = lastPresups.length === 0
+    ? '<div class="empty" style="padding:20px"><div class="empty-sub">Sin presupuestos aún</div></div>'
+    : lastPresups.map(p => `
+      <div class="presup-card" onclick="viewPresup('${p.id}')">
+        <div class="presup-header-row">
+          <div><div class="presup-client">${p.client}</div><div class="presup-meta">${formatDate(p.date)}</div></div>
+          <div class="presup-total">${formatMoney(p.total)}</div>
+        </div>
+      </div>`).join('');
+
+  // últimos clientes
   const recent = clients.slice(-3).reverse();
   const rcEl = document.getElementById('dash-recent');
-  if (recent.length === 0) {
-    rcEl.innerHTML = '<div class="empty" style="padding:20px"><div class="empty-sub">Sin clientes aún</div></div>';
-  } else {
-    rcEl.innerHTML = recent.map(c => `
+  rcEl.innerHTML = recent.length === 0
+    ? '<div class="empty" style="padding:20px"><div class="empty-sub">Sin clientes aún</div></div>'
+    : recent.map(c => `
       <div class="client-card" onclick="viewClient('${c.id}')">
-        <div>
-          <div class="client-name">${c.name}</div>
-          <div class="client-meta">${c.address || c.phone || ''}</div>
-          <div class="client-tags">${systemTags(c.systems)}</div>
-        </div>
+        <div><div class="client-name">${c.name}</div><div class="client-meta">${c.address||c.phone||''}</div><div class="client-tags">${systemTags(c.systems)}</div></div>
       </div>`).join('');
-  }
 }
 
 // === CLIENTS ===
 function systemTags(systems) {
   if (!systems || systems.length === 0) return '';
-  const map = { camaras: ['tag-cam','📷 Cámaras'], alarma: ['tag-alarm','🔔 Alarma'], cerco: ['tag-fence','⚡ Cerco'], acceso: ['tag-access','🚪 Acceso'], otro: ['tag-other','🔧 Otros'] };
+  const map = { camaras:['tag-cam','📷 Cámaras'], alarma:['tag-alarm','🔔 Alarma'], cerco:['tag-fence','⚡ Cerco'], acceso:['tag-access','🚪 Acceso'], otro:['tag-other','🔧 Otros'] };
   return systems.map(s => map[s] ? `<span class="tag ${map[s][0]}">${map[s][1]}</span>` : '').join('');
 }
 
@@ -978,55 +1285,37 @@ function renderClients() {
   let clients = Object.values(window._clients);
   if (q) clients = clients.filter(c => (c.name||'').toLowerCase().includes(q) || (c.address||'').toLowerCase().includes(q) || (c.phone||'').toLowerCase().includes(q));
   clients.sort((a,b) => (a.name||'').localeCompare(b.name||''));
-
   const el = document.getElementById('client-list');
   if (clients.length === 0) {
-    el.innerHTML = `<div class="empty"><div class="empty-icon">👤</div><div class="empty-text">${q ? 'Sin resultados' : 'Sin clientes'}</div><div class="empty-sub">${q ? 'Probá otra búsqueda' : 'Tocá + para agregar el primero'}</div></div>`;
+    el.innerHTML = `<div class="empty"><div class="empty-icon">👤</div><div class="empty-text">${q?'Sin resultados':'Sin clientes'}</div><div class="empty-sub">${q?'Probá otra búsqueda':'Tocá + para agregar el primero'}</div></div>`;
     return;
   }
   el.innerHTML = clients.map(c => `
     <div class="client-card" onclick="viewClient('${c.id}')">
-      <div style="flex:1">
-        <div class="client-name">${c.name}</div>
-        <div class="client-meta">${[c.phone, c.address].filter(Boolean).join(' · ')}</div>
-        <div class="client-tags">${systemTags(c.systems)}</div>
-      </div>
+      <div style="flex:1"><div class="client-name">${c.name}</div><div class="client-meta">${[c.phone,c.address].filter(Boolean).join(' · ')}</div><div class="client-tags">${systemTags(c.systems)}</div></div>
       <div class="client-actions">
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); editClientById('${c.id}')">✏️</button>
-        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation(); deleteClient('${c.id}')">🗑</button>
+        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editClientById('${c.id}')">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();deleteClient('${c.id}')">🗑</button>
       </div>
     </div>`).join('');
 }
 window.renderClients = renderClients;
 
 function viewClient(id) {
-  const c = window._clients[id];
-  if (!c) return;
+  const c = window._clients[id]; if (!c) return;
   window._currentViewId = id;
   document.getElementById('view-name').textContent = c.name;
-
-  let html = `
-    <div class="detail-section">
-      <div class="detail-section-title">Contacto</div>
-      ${c.phone ? `<div class="detail-row"><span class="detail-key">Teléfono</span><span class="detail-val"><a href="tel:${c.phone}">${c.phone}</a></span></div>` : ''}
-      ${c.email ? `<div class="detail-row"><span class="detail-key">Email</span><span class="detail-val">${c.email}</span></div>` : ''}
-      ${c.address ? `<div class="detail-row"><span class="detail-key">Dirección</span><span class="detail-val">${c.address}</span></div>` : ''}
-    </div>`;
-
-  if (c.systems && c.systems.length > 0) {
-    html += `<div class="detail-section"><div class="detail-section-title">Sistemas</div><div class="client-tags" style="margin-top:4px">${systemTags(c.systems)}</div></div>`;
-  }
-  if (c.notes) {
-    html += `<div class="detail-section"><div class="detail-section-title">Observaciones</div><div style="font-size:13px;color:var(--text)">${c.notes}</div></div>`;
-  }
-  if (c.agenda && c.agenda.length > 0) {
+  let html = `<div class="detail-section"><div class="detail-section-title">Contacto</div>
+    ${c.phone?`<div class="detail-row"><span class="detail-key">Teléfono</span><span class="detail-val"><a href="tel:${c.phone}">${c.phone}</a></span></div>`:''}
+    ${c.email?`<div class="detail-row"><span class="detail-key">Email</span><span class="detail-val">${c.email}</span></div>`:''}
+    ${c.address?`<div class="detail-row"><span class="detail-key">Dirección</span><span class="detail-val">${c.address}</span></div>`:''}</div>`;
+  if (c.systems && c.systems.length) html += `<div class="detail-section"><div class="detail-section-title">Sistemas</div><div class="client-tags" style="margin-top:4px">${systemTags(c.systems)}</div></div>`;
+  if (c.notes) html += `<div class="detail-section"><div class="detail-section-title">Observaciones</div><div style="font-size:13px;color:var(--text)">${c.notes}</div></div>`;
+  if (c.agenda && c.agenda.length) {
     html += `<div class="detail-section"><div class="detail-section-title">Agenda de visitas</div>`;
-    c.agenda.forEach(a => {
-      if (a.date || a.desc) html += `<div class="detail-row"><span class="detail-key">${a.date ? formatDate(a.date) : '—'}</span><span class="detail-val">${a.desc || ''}</span></div>`;
-    });
+    c.agenda.forEach(a => { if (a.date||a.desc) html += `<div class="detail-row"><span class="detail-key">${a.date?formatDate(a.date):'—'}</span><span class="detail-val">${a.desc||''}</span></div>`; });
     html += '</div>';
   }
-
   document.getElementById('view-content').innerHTML = html;
   openModal('modal-view');
 }
@@ -1035,52 +1324,41 @@ window.viewClient = viewClient;
 window.editCurrentClient = () => { closeModal('modal-view'); editClientById(window._currentViewId); };
 window.deleteCurrentClient = () => { closeModal('modal-view'); deleteClient(window._currentViewId); };
 
-function editClientById(id) {
-  const c = window._clients[id];
-  if (!c) return;
-  openClientModal(c);
-}
+function editClientById(id) { const c = window._clients[id]; if (!c) return; openClientModal(c); }
 window.editClientById = editClientById;
 
 function openClientModal(client) {
   document.getElementById('modal-client-title').textContent = client ? 'Editar cliente' : 'Nuevo cliente';
   document.getElementById('client-id').value = client ? client.id : '';
-  document.getElementById('c-name').value = client ? client.name || '' : '';
-  document.getElementById('c-phone').value = client ? client.phone || '' : '';
-  document.getElementById('c-email').value = client ? client.email || '' : '';
-  document.getElementById('c-address').value = client ? client.address || '' : '';
-  document.getElementById('c-notes').value = client ? client.notes || '' : '';
+  ['c-name','c-phone','c-email','c-address','c-notes'].forEach(id => {
+    const field = id.replace('c-','');
+    document.getElementById(id).value = client ? (client[field]||client.name||'') : '';
+  });
+  document.getElementById('c-name').value = client ? client.name||'' : '';
+  document.getElementById('c-phone').value = client ? client.phone||'' : '';
+  document.getElementById('c-email').value = client ? client.email||'' : '';
+  document.getElementById('c-address').value = client ? client.address||'' : '';
+  document.getElementById('c-notes').value = client ? client.notes||'' : '';
 
-  // Systems
   document.querySelectorAll('#systems-check .checkbox-item').forEach(el => {
     const cb = el.querySelector('input');
     const checked = client && client.systems && client.systems.includes(cb.value);
     cb.checked = checked;
     el.classList.toggle('checked', checked);
   });
-
-  // Agenda
   const agendaEl = document.getElementById('agenda-items');
   agendaEl.innerHTML = '';
   const items = (client && client.agenda) ? client.agenda : [];
   items.forEach(a => addAgendaItem(a.date, a.desc));
-
   openModal('modal-client');
 }
 window.openClientModal = openClientModal;
 
 function addAgendaItem(date='', desc='') {
   const container = document.getElementById('agenda-items');
-  const id = uid();
   const div = document.createElement('div');
   div.className = 'agenda-item';
-  div.dataset.aid = id;
-  div.innerHTML = `
-    <div class="agenda-item-header">
-      <input type="date" value="${date}" style="flex:1; margin-right:8px">
-      <button class="btn btn-outline btn-sm" onclick="this.closest('.agenda-item').remove()">✕</button>
-    </div>
-    <input type="text" placeholder="Qué se va a hacer (revisión, instalación, etc.)" value="${desc}">`;
+  div.innerHTML = `<div class="agenda-item-header"><input type="date" value="${date}" style="flex:1; margin-right:8px"><button class="btn btn-outline btn-sm" onclick="this.closest('.agenda-item').remove()">✕</button></div><input type="text" placeholder="Qué se va a hacer (revisión, instalación, etc.)" value="${desc}">`;
   container.appendChild(div);
 }
 window.addAgendaItem = addAgendaItem;
@@ -1088,75 +1366,39 @@ window.addAgendaItem = addAgendaItem;
 async function saveClient() {
   const name = document.getElementById('c-name').value.trim();
   if (!name) { showToast('⚠️ El nombre es obligatorio'); return; }
-
   const systems = [];
   document.querySelectorAll('#systems-check input:checked').forEach(cb => systems.push(cb.value));
-
   const agenda = [];
   document.querySelectorAll('#agenda-items .agenda-item').forEach(el => {
     const inputs = el.querySelectorAll('input');
     agenda.push({ date: inputs[0].value, desc: inputs[1].value });
   });
-
   const id = document.getElementById('client-id').value || uid();
-  const data = { id, name,
-    phone: document.getElementById('c-phone').value.trim(),
-    email: document.getElementById('c-email').value.trim(),
-    address: document.getElementById('c-address').value.trim(),
-    notes: document.getElementById('c-notes').value.trim(),
-    systems, agenda,
-    updatedAt: Date.now()
-  };
-
+  const data = { id, name, phone: document.getElementById('c-phone').value.trim(), email: document.getElementById('c-email').value.trim(), address: document.getElementById('c-address').value.trim(), notes: document.getElementById('c-notes').value.trim(), systems, agenda, updatedAt: Date.now() };
   window._clients[id] = data;
-
-  // Sincronizar agenda del cliente con el calendario
   syncAgendaToCalendar(id, data);
-
   renderAll();
-
-  if (window._localMode) {
-    setLS('sp_clients', window._clients);
-    setLS('sp_events', window._events);
-  } else if (window._currentUser) {
-    try { await window._saveClientToFirestore(id, data); }
-    catch(e) { console.error(e); showToast('⚠️ Error al guardar en nube'); }
-  }
-
+  await persist('clients', data);
+  if (window._localMode) setLS('sp_events', window._events);
   closeModal('modal-client');
   showToast('✅ Cliente guardado');
 }
 window.saveClient = saveClient;
 
 function syncAgendaToCalendar(clientId, clientData) {
-  // Eliminar eventos anteriores de este cliente que vengan de agenda
   Object.keys(window._events).forEach(eid => {
     if (window._events[eid]._fromClient === clientId) {
       delete window._events[eid];
-      if (!window._localMode && window._currentUser) {
-        window._deleteEventFromFirestore(eid).catch(()=>{});
-      }
+      if (!window._localMode && window._currentUser) window._deleteFromFS('events', eid).catch(()=>{});
     }
   });
-
-  // Agregar los nuevos items de agenda como eventos
   if (clientData.agenda && clientData.agenda.length > 0) {
     clientData.agenda.forEach(a => {
       if (!a.date) return;
       const eid = uid();
-      const evData = {
-        id: eid,
-        type: 'mant',
-        date: a.date,
-        time: '',
-        client: clientData.name,
-        desc: a.desc || '',
-        _fromClient: clientId
-      };
+      const evData = { id: eid, type: 'mant', date: a.date, time: '', client: clientData.name, desc: a.desc||'', _fromClient: clientId };
       window._events[eid] = evData;
-      if (!window._localMode && window._currentUser) {
-        window._saveEventToFirestore(eid, evData).catch(()=>{});
-      }
+      if (!window._localMode && window._currentUser) window._saveToFS('events', eid, evData).catch(()=>{});
     });
   }
 }
@@ -1165,12 +1407,8 @@ async function deleteClient(id) {
   if (!confirm('¿Eliminar este cliente?')) return;
   delete window._clients[id];
   renderAll();
-  if (window._localMode) {
-    setLS('sp_clients', window._clients);
-  } else if (window._currentUser) {
-    try { await window._deleteClientFromFirestore(id); }
-    catch(e) { console.error(e); }
-  }
+  await removeFromStore('clients', id);
+  if (window._localMode) setLS('sp_clients', window._clients);
   showToast('🗑 Cliente eliminado');
 }
 window.deleteClient = deleteClient;
@@ -1185,7 +1423,7 @@ function openEventModal(date, existingId) {
   document.getElementById('modal-event-title').textContent = ev ? 'Editar evento' : 'Nuevo evento';
   document.getElementById('event-id').value = ev ? ev.id : '';
   document.getElementById('ev-type').value = ev ? ev.type : 'mant';
-  document.getElementById('ev-date').value = ev ? ev.date : (date || '');
+  document.getElementById('ev-date').value = ev ? ev.date : (date||'');
   document.getElementById('ev-time').value = ev ? ev.time : '';
   document.getElementById('ev-client').value = ev ? ev.client : '';
   document.getElementById('ev-desc').value = ev ? ev.desc : '';
@@ -1196,30 +1434,25 @@ window.openEventModal = openEventModal;
 async function saveEvent() {
   const date = document.getElementById('ev-date').value;
   if (!date) { showToast('⚠️ La fecha es obligatoria'); return; }
-
   const id = document.getElementById('event-id').value || uid();
-  const data = { id,
-    type: document.getElementById('ev-type').value,
-    date,
-    time: document.getElementById('ev-time').value,
-    client: document.getElementById('ev-client').value.trim(),
-    desc: document.getElementById('ev-desc').value.trim()
-  };
-
+  const data = { id, type: document.getElementById('ev-type').value, date, time: document.getElementById('ev-time').value, client: document.getElementById('ev-client').value.trim(), desc: document.getElementById('ev-desc').value.trim() };
   window._events[id] = data;
-  renderAll(); // UI inmediata
-
-  if (window._localMode) {
-    setLS('sp_events', window._events);
-  } else if (window._currentUser) {
-    try { await window._saveEventToFirestore(id, data); }
-    catch(e) { console.error(e); showToast('⚠️ Error al guardar evento'); }
-  }
-
+  renderAll();
+  await persist('events', data);
   closeModal('modal-event');
   showToast('✅ Evento guardado');
 }
 window.saveEvent = saveEvent;
+
+async function deleteEvent(id) {
+  if (!confirm('¿Eliminar este evento?')) return;
+  delete window._events[id];
+  if (window._localMode) setLS('sp_events', window._events);
+  else if (window._fbReady && window._currentUser) await window._deleteFromFS('events', id).catch(()=>{});
+  showToast('🗑 Evento eliminado');
+  renderAll();
+}
+window.deleteEvent = deleteEvent;
 
 // === CALENDAR ===
 const DAYS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
@@ -1230,94 +1463,524 @@ function renderCalendar() {
   const d = window._calDate;
   const year = d.getFullYear(), month = d.getMonth();
   document.getElementById('cal-title').textContent = `${MONTHS[month]} ${year}`;
-
-  const headersEl = document.getElementById('cal-headers');
-  headersEl.innerHTML = DAYS.map(d => `<div class="cal-day-header">${d}</div>`).join('');
-
+  document.getElementById('cal-headers').innerHTML = DAYS.map(d => `<div class="cal-day-header">${d}</div>`).join('');
   const first = new Date(year, month, 1);
   const last = new Date(year, month + 1, 0);
   const startDay = first.getDay();
   const today = new Date();
-
   let html = '';
   const eventsByDate = {};
-  Object.values(window._events).forEach(e => {
-    if (!eventsByDate[e.date]) eventsByDate[e.date] = [];
-    eventsByDate[e.date].push(e);
-  });
-
-  // Blank cells before
-  for (let i = 0; i < startDay; i++) {
-    const prevDate = new Date(year, month, -startDay + i + 1);
-    html += `<div class="cal-day other-month"><div class="cal-day-num">${prevDate.getDate()}</div></div>`;
-  }
-
+  Object.values(window._events).forEach(e => { if (!eventsByDate[e.date]) eventsByDate[e.date]=[]; eventsByDate[e.date].push(e); });
+  for (let i = 0; i < startDay; i++) { const pD = new Date(year, month, -startDay+i+1); html += `<div class="cal-day other-month"><div class="cal-day-num">${pD.getDate()}</div></div>`; }
   for (let day = 1; day <= last.getDate(); day++) {
     const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
-    const isToday = day === today.getDate() && month === today.getMonth() && year === today.getFullYear();
-    const dayEvents = eventsByDate[dateStr] || [];
+    const isToday = day===today.getDate() && month===today.getMonth() && year===today.getFullYear();
+    const dayEvents = eventsByDate[dateStr]||[];
     const numHtml = isToday ? `<div class="cal-day-num"><div style="background:var(--primary);color:white;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px">${day}</div></div>` : `<div class="cal-day-num">${day}</div>`;
-    html += `<div class="cal-day${isToday?' today':''}" onclick="openEventModal('${dateStr}')">
-      ${numHtml}
-      ${dayEvents.slice(0,2).map(e => `<div class="cal-event ${evColors[e.type]||'ev-otro'}">${e.client||typeLabel(e.type)}</div>`).join('')}
-      ${dayEvents.length > 2 ? `<div style="font-size:10px;color:var(--text-light)">+${dayEvents.length-2} más</div>` : ''}
-    </div>`;
+    html += `<div class="cal-day${isToday?' today':''}" onclick="openEventModal('${dateStr}')">${numHtml}${dayEvents.slice(0,2).map(e=>`<div class="cal-event ${evColors[e.type]||'ev-otro'}">${e.client||typeLabel(e.type)}</div>`).join('')}${dayEvents.length>2?`<div style="font-size:10px;color:var(--text-light)">+${dayEvents.length-2} más</div>`:''}</div>`;
   }
-
-  // Fill remaining
   const total = startDay + last.getDate();
   const remaining = total % 7 === 0 ? 0 : 7 - (total % 7);
-  for (let i = 1; i <= remaining; i++) {
-    html += `<div class="cal-day other-month"><div class="cal-day-num">${i}</div></div>`;
-  }
-
+  for (let i = 1; i <= remaining; i++) html += `<div class="cal-day other-month"><div class="cal-day-num">${i}</div></div>`;
   document.getElementById('cal-grid').innerHTML = html;
 
-  // All events list
-  const allEvents = Object.values(window._events).sort((a,b) => new Date(a.date) - new Date(b.date));
+  const allEvents = Object.values(window._events).sort((a,b) => new Date(a.date)-new Date(b.date));
   const allEl = document.getElementById('all-events-list');
-  if (allEvents.length === 0) {
-    allEl.innerHTML = '<div class="empty" style="padding:20px"><div class="empty-sub">Sin eventos aún</div></div>';
-  } else {
-    const colors2 = { mant:'#3b82f6', venta:'#10b981', rep:'#ef4444', amp:'#8b5cf6', otro:'#94a3b8' };
-    allEl.innerHTML = allEvents.map(e => `
+  const colors2 = { mant:'#3b82f6', venta:'#10b981', rep:'#ef4444', amp:'#8b5cf6', otro:'#94a3b8' };
+  allEl.innerHTML = allEvents.length === 0
+    ? '<div class="empty" style="padding:20px"><div class="empty-sub">Sin eventos aún</div></div>'
+    : allEvents.map(e => `
       <div class="upcoming-item">
         <div class="upcoming-dot" style="background:${colors2[e.type]}"></div>
-        <div class="upcoming-text" style="flex:1">
-          <div class="upcoming-title">${e.client || '—'} — ${typeLabel(e.type)}</div>
-          <div class="upcoming-meta">${formatDate(e.date)}${e.time?' · '+e.time:''}${e.desc?' · '+e.desc:''}</div>
-        </div>
+        <div class="upcoming-text" style="flex:1"><div class="upcoming-title">${e.client||'—'} — ${typeLabel(e.type)}</div><div class="upcoming-meta">${formatDate(e.date)}${e.time?' · '+e.time:''}${e.desc?' · '+e.desc:''}</div></div>
         <button class="btn btn-danger btn-sm" onclick="deleteEvent('${e.id}')">🗑</button>
       </div>`).join('');
-  }
+}
+window.changeMonth = (dir) => { window._calDate.setMonth(window._calDate.getMonth()+dir); renderCalendar(); };
+
+// ========================= CATÁLOGO =========================
+
+function prodTypeLabel(t) {
+  return { camara:'📷 Cámara', alarma:'🔔 Alarma/Sensor', dvr:'🖥 DVR/NVR', acceso:'🚪 Acceso', cerco:'⚡ Cerco', manoobra:'🔧 Mano de obra', otro:'📦 Otro' }[t] || t;
 }
 
-async function deleteEvent(id) {
-  if (!confirm('¿Eliminar este evento?')) return;
-  delete window._events[id];
-  if (window._localMode) {
-    setLS('sp_events', window._events);
-  } else if (window._fbReady && window._currentUser) {
-    try { await window._deleteEventFromFirestore(id); }
-    catch(e) { console.error(e); }
+function buildProductDesc(p) {
+  const parts = [];
+  if (p.marca) parts.push(p.marca);
+  if (p.type === 'camara') {
+    if (p.mp) parts.push(p.mp + 'MP');
+    if (p.ubicacion) parts.push(p.ubicacion);
+  } else if (p.type === 'alarma') {
+    if (p.componente) parts.push(p.componente);
+  } else if (p.type === 'dvr') {
+    if (p.canales) parts.push(p.canales + ' canales');
   }
-  showToast('🗑 Evento eliminado');
-  renderAll();
+  if (p.notas) parts.push(p.notas);
+  return parts.join(' · ');
 }
-window.deleteEvent = deleteEvent;
 
-window.changeMonth = (dir) => {
-  window._calDate.setMonth(window._calDate.getMonth() + dir);
-  renderCalendar();
+function renderCatalogo() {
+  const q = (document.getElementById('search-prod')?.value||'').toLowerCase();
+  let prods = Object.values(window._products);
+  if (q) prods = prods.filter(p => matchProduct(p, q));
+  prods.sort((a,b) => (a.type+a.marca+a.nombre).localeCompare(b.type+b.marca+b.nombre));
+  const el = document.getElementById('catalogo-list');
+  if (prods.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-icon">📦</div><div class="empty-text">${q?'Sin resultados':'Sin productos'}</div><div class="empty-sub">${q?'Probá otra búsqueda':'Tocá + para crear el catálogo'}</div></div>`;
+    return;
+  }
+  // Agrupar por tipo
+  const groups = {};
+  prods.forEach(p => { if (!groups[p.type]) groups[p.type]=[]; groups[p.type].push(p); });
+  let html = '';
+  Object.keys(groups).forEach(type => {
+    html += `<div style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-secondary);margin:12px 0 6px">${prodTypeLabel(type)}</div>`;
+    groups[type].forEach(p => {
+      html += `<div class="prod-cat-card">
+        <div>
+          <div class="prod-cat-name">${p.marca} ${p.nombre}</div>
+          <div class="prod-cat-desc">${buildProductDesc(p)}</div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="prod-cat-price">${formatMoney(p.precio)}</span>
+          <button class="btn btn-outline btn-sm" onclick="editProduct('${p.id}')">✏️</button>
+          <button class="btn btn-danger btn-sm" onclick="deleteProduct('${p.id}')">🗑</button>
+        </div>
+      </div>`;
+    });
+  });
+  el.innerHTML = html;
+}
+
+function matchProduct(p, q) {
+  const searchable = [p.marca, p.nombre, p.type, p.mp, p.ubicacion, p.componente, p.canales, p.notas].filter(Boolean).join(' ').toLowerCase();
+  return q.split(' ').every(word => searchable.includes(word));
+}
+
+function updateProductFields() {
+  const type = document.getElementById('prod-type').value;
+  const container = document.getElementById('dynamic-prod-fields');
+  let html = '<div class="dynamic-fields">';
+  if (type === 'camara') {
+    html += `<div class="form-row">
+      <div class="form-group"><label>Megapíxeles</label><select id="prod-mp"><option value="">-</option><option>2</option><option>4</option><option>5</option><option>8</option><option>12</option><option>Otro</option></select></div>
+      <div class="form-group"><label>Ubicación</label><select id="prod-ubicacion"><option value="">-</option><option>Interior</option><option>Exterior</option><option>Interior/Exterior</option></select></div>
+    </div>`;
+  } else if (type === 'alarma') {
+    html += `<div class="form-group"><label>Tipo de componente</label><select id="prod-componente"><option value="">-</option><option>Sensor de movimiento</option><option>Sensor de apertura</option><option>Barrera infrarroja</option><option>Sirena</option><option>Panel de alarma</option><option>Teclado</option><option>Batería</option><option>Otro</option></select></div>`;
+  } else if (type === 'dvr') {
+    html += `<div class="form-group"><label>Canales</label><select id="prod-canales"><option value="">-</option><option>4</option><option>8</option><option>16</option><option>32</option></select></div>`;
+  }
+  html += '</div>';
+  container.innerHTML = html;
+}
+window.updateProductFields = updateProductFields;
+
+function openProductModal(prod) {
+  document.getElementById('modal-product-title').textContent = prod ? 'Editar producto' : 'Nuevo producto';
+  document.getElementById('prod-id').value = prod ? prod.id : '';
+  document.getElementById('prod-type').value = prod ? prod.type : 'camara';
+  document.getElementById('prod-marca').value = prod ? prod.marca||'' : '';
+  document.getElementById('prod-nombre').value = prod ? prod.nombre||'' : '';
+  document.getElementById('prod-precio').value = prod ? prod.precio||'' : '';
+  document.getElementById('prod-notas').value = prod ? prod.notas||'' : '';
+  updateProductFields();
+  // Fill dynamic fields after render
+  setTimeout(() => {
+    if (prod) {
+      if (prod.type==='camara') {
+        if (document.getElementById('prod-mp')) document.getElementById('prod-mp').value = prod.mp||'';
+        if (document.getElementById('prod-ubicacion')) document.getElementById('prod-ubicacion').value = prod.ubicacion||'';
+      } else if (prod.type==='alarma') {
+        if (document.getElementById('prod-componente')) document.getElementById('prod-componente').value = prod.componente||'';
+      } else if (prod.type==='dvr') {
+        if (document.getElementById('prod-canales')) document.getElementById('prod-canales').value = prod.canales||'';
+      }
+    }
+  }, 0);
+  openModal('modal-product');
+}
+window.openProductModal = openProductModal;
+
+function editProduct(id) { openProductModal(window._products[id]); }
+window.editProduct = editProduct;
+
+async function deleteProduct(id) {
+  if (!confirm('¿Eliminar este producto?')) return;
+  delete window._products[id];
+  renderCatalogo();
+  if (window._localMode) setLS('sp_products', window._products);
+  else if (window._currentUser) await window._deleteFromFS('products', id).catch(()=>{});
+  showToast('🗑 Producto eliminado');
+}
+window.deleteProduct = deleteProduct;
+
+async function saveProduct() {
+  const marca = document.getElementById('prod-marca').value.trim();
+  const nombre = document.getElementById('prod-nombre').value.trim();
+  const precio = parseFloat(document.getElementById('prod-precio').value);
+  if (!marca || !nombre) { showToast('⚠️ Marca y nombre son obligatorios'); return; }
+  if (isNaN(precio) || precio < 0) { showToast('⚠️ Ingresá un precio válido'); return; }
+  const type = document.getElementById('prod-type').value;
+  const id = document.getElementById('prod-id').value || uid();
+  const data = { id, type, marca, nombre, precio, notas: document.getElementById('prod-notas').value.trim() };
+  if (type==='camara') {
+    data.mp = document.getElementById('prod-mp')?.value||'';
+    data.ubicacion = document.getElementById('prod-ubicacion')?.value||'';
+  } else if (type==='alarma') {
+    data.componente = document.getElementById('prod-componente')?.value||'';
+  } else if (type==='dvr') {
+    data.canales = document.getElementById('prod-canales')?.value||'';
+  }
+  window._products[id] = data;
+  renderCatalogo();
+  await persist('products', data);
+  closeModal('modal-product');
+  showToast('✅ Producto guardado');
+}
+window.saveProduct = saveProduct;
+
+// ========================= PRESUPUESTOS =========================
+
+function renderPresupuestos() {
+  const q = (document.getElementById('search-presup')?.value||'').toLowerCase();
+  let presups = Object.values(window._presupuestos);
+  if (q) presups = presups.filter(p => (p.client||'').toLowerCase().includes(q));
+  presups.sort((a,b) => (b.createdAt||0)-(a.createdAt||0));
+  const el = document.getElementById('presup-list');
+  if (presups.length === 0) {
+    el.innerHTML = `<div class="empty"><div class="empty-icon">💰</div><div class="empty-text">${q?'Sin resultados':'Sin presupuestos'}</div><div class="empty-sub">${q?'Probá otra búsqueda':'Tocá + para crear el primero'}</div></div>`;
+    return;
+  }
+  el.innerHTML = presups.map(p => `
+    <div class="presup-card" onclick="viewPresup('${p.id}')">
+      <div class="presup-header-row">
+        <div>
+          <div class="presup-client">${p.client}</div>
+          <div class="presup-meta">${formatDate(p.date)}${p.notes?' · '+p.notes:''}</div>
+          <div><span class="presup-status status-borrador">${(p.items||[]).length} ítem${(p.items||[]).length!==1?'s':''}</span></div>
+        </div>
+        <div style="text-align:right">
+          <div class="presup-total">${formatMoney(p.total)}</div>
+          ${p.totalAdj&&p.totalAdj>0?`<div class="adj-badge">+${p.totalAdj}% total</div>`:''}
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function openPresupModal(presup) {
+  document.getElementById('modal-presup-title').textContent = presup ? 'Editar presupuesto' : 'Nuevo presupuesto';
+  document.getElementById('presup-id').value = presup ? presup.id : '';
+  document.getElementById('presup-client').value = presup ? presup.client||'' : '';
+  document.getElementById('presup-date').value = presup ? presup.date : new Date().toISOString().split('T')[0];
+  document.getElementById('presup-notes').value = presup ? presup.notes||'' : '';
+  document.getElementById('total-adj').value = presup ? presup.totalAdj||0 : 0;
+
+  // Cargar ítems
+  window._presupItems = presup ? JSON.parse(JSON.stringify(presup.items||[])) : [];
+  hideProductSearch();
+  renderPresupItems();
+  openModal('modal-presup');
+}
+window.openPresupModal = openPresupModal;
+
+function showProductSearch() {
+  document.getElementById('prod-search-container').style.display = 'block';
+  document.getElementById('prod-search-input').value = '';
+  document.getElementById('prod-dropdown').style.display = 'none';
+  document.getElementById('prod-search-input').focus();
+}
+window.showProductSearch = showProductSearch;
+
+function hideProductSearch() {
+  document.getElementById('prod-search-container').style.display = 'none';
+  document.getElementById('prod-dropdown').style.display = 'none';
+}
+window.hideProductSearch = hideProductSearch;
+
+function searchProducts() {
+  const q = document.getElementById('prod-search-input').value.trim().toLowerCase();
+  const dropdown = document.getElementById('prod-dropdown');
+  if (!q) { dropdown.style.display = 'none'; return; }
+  const prods = Object.values(window._products).filter(p => matchProduct(p, q));
+  if (prods.length === 0) {
+    dropdown.innerHTML = '<div class="prod-option" style="color:var(--text-secondary)">Sin resultados</div>';
+  } else {
+    dropdown.innerHTML = prods.map(p => `
+      <div class="prod-option" onclick="addItemFromProduct('${p.id}')">
+        <div class="prod-option-name">${p.marca} ${p.nombre}</div>
+        <div class="prod-option-desc">${buildProductDesc(p)}</div>
+        <div class="prod-option-price">${formatMoney(p.precio)}</div>
+      </div>`).join('');
+  }
+  dropdown.style.display = 'block';
+}
+window.searchProducts = searchProducts;
+
+function addItemFromProduct(prodId) {
+  const p = window._products[prodId]; if (!p) return;
+  window._presupItems.push({ prodId, nombre: p.marca + ' ' + p.nombre, desc: buildProductDesc(p), precio: p.precio, qty: 1, adj: 0 });
+  hideProductSearch();
+  renderPresupItems();
+}
+window.addItemFromProduct = addItemFromProduct;
+
+function renderPresupItems() {
+  const container = document.getElementById('presup-items-list');
+  if (window._presupItems.length === 0) {
+    container.innerHTML = '<div style="text-align:center;padding:16px;color:var(--text-secondary);font-size:13px">Sin ítems. Tocá "+ Agregar ítem" para buscar productos.</div>';
+    recalcPresup();
+    return;
+  }
+  container.innerHTML = window._presupItems.map((item, i) => {
+    const adjPrice = item.precio * (1 + (item.adj||0)/100);
+    const totalItem = adjPrice * item.qty;
+    return `
+    <div class="presup-item-row">
+      <div class="presup-item-info">
+        <div class="presup-item-name">${item.nombre}</div>
+        <div class="presup-item-desc">${item.desc||''}</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0">
+        <div class="presup-item-qty">
+          <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+          <span class="qty-val">${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+        </div>
+        <select class="adj-select" onchange="changeAdj(${i}, this.value)">
+          <option value="0"${item.adj==0?' selected':''}>Sin ajuste</option>
+          <option value="10"${item.adj==10?' selected':''}>+10%</option>
+          <option value="20"${item.adj==20?' selected':''}>+20%</option>
+          <option value="30"${item.adj==30?' selected':''}>+30%</option>
+        </select>
+        <div style="text-align:right">
+          ${item.adj>0?`<div class="presup-item-original">${formatMoney(item.precio * item.qty)}</div>`:''}
+          <div class="presup-item-price">${formatMoney(totalItem)} ${item.adj>0?`<span class="adj-badge">+${item.adj}%</span>`:''}</div>
+        </div>
+        <button class="btn btn-danger btn-sm" onclick="removeItem(${i})">🗑</button>
+      </div>
+    </div>`;
+  }).join('');
+  recalcPresup();
+}
+
+function changeQty(i, delta) {
+  window._presupItems[i].qty = Math.max(1, (window._presupItems[i].qty||1) + delta);
+  renderPresupItems();
+}
+window.changeQty = changeQty;
+
+function changeAdj(i, val) {
+  window._presupItems[i].adj = parseInt(val)||0;
+  renderPresupItems();
+}
+window.changeAdj = changeAdj;
+
+function removeItem(i) {
+  window._presupItems.splice(i, 1);
+  renderPresupItems();
+}
+window.removeItem = removeItem;
+
+function recalcPresup() {
+  const subtotal = window._presupItems.reduce((sum, item) => {
+    return sum + item.precio * (1 + (item.adj||0)/100) * item.qty;
+  }, 0);
+  const totalAdjPct = parseInt(document.getElementById('total-adj')?.value||0);
+  const total = subtotal * (1 + totalAdjPct/100);
+  const subEl = document.getElementById('presup-subtotal-val');
+  const totalEl = document.getElementById('presup-grand-total');
+  const badgeEl = document.getElementById('total-adj-badge');
+  if (subEl) subEl.textContent = formatMoney(subtotal);
+  if (totalEl) totalEl.textContent = formatMoney(total);
+  if (badgeEl) {
+    badgeEl.style.display = totalAdjPct > 0 ? 'inline' : 'none';
+    badgeEl.textContent = '+' + totalAdjPct + '%';
+  }
+}
+window.recalcPresup = recalcPresup;
+
+async function savePresup() {
+  const client = document.getElementById('presup-client').value.trim();
+  if (!client) { showToast('⚠️ El cliente es obligatorio'); return; }
+  if (window._presupItems.length === 0) { showToast('⚠️ Agregá al menos un ítem'); return; }
+  const totalAdjPct = parseInt(document.getElementById('total-adj').value||0);
+  const subtotal = window._presupItems.reduce((sum, item) => sum + item.precio * (1+(item.adj||0)/100) * item.qty, 0);
+  const total = subtotal * (1 + totalAdjPct/100);
+  const id = document.getElementById('presup-id').value || uid();
+  const data = {
+    id, client,
+    date: document.getElementById('presup-date').value,
+    notes: document.getElementById('presup-notes').value.trim(),
+    items: JSON.parse(JSON.stringify(window._presupItems)),
+    totalAdj: totalAdjPct,
+    subtotal, total,
+    createdAt: Date.now()
+  };
+  window._presupuestos[id] = data;
+  renderPresupuestos();
+  renderDashboard();
+  await persist('presupuestos', data);
+  closeModal('modal-presup');
+  showToast('✅ Presupuesto guardado');
+}
+window.savePresup = savePresup;
+
+function viewPresup(id) {
+  const p = window._presupuestos[id]; if (!p) return;
+  window._currentViewPresupId = id;
+  document.getElementById('view-presup-title').textContent = `Presupuesto — ${p.client}`;
+  let html = `
+    <div class="detail-section">
+      <div class="detail-section-title">Datos</div>
+      <div class="detail-row"><span class="detail-key">Cliente</span><span class="detail-val">${p.client}</span></div>
+      <div class="detail-row"><span class="detail-key">Fecha</span><span class="detail-val">${formatDate(p.date)}</span></div>
+      ${p.notes?`<div class="detail-row"><span class="detail-key">Notas</span><span class="detail-val">${p.notes}</span></div>`:''}
+    </div>
+    <div class="detail-section">
+      <div class="detail-section-title">Ítems (${(p.items||[]).length})</div>`;
+  (p.items||[]).forEach(item => {
+    const adjPrice = item.precio * (1+(item.adj||0)/100);
+    const lineTotal = adjPrice * item.qty;
+    html += `<div class="presup-item-row" style="pointer-events:none">
+      <div class="presup-item-info">
+        <div class="presup-item-name">${item.nombre}</div>
+        <div class="presup-item-desc">${item.desc||''}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0">
+        <div style="font-size:12px;color:var(--text-secondary)">x${item.qty}${item.adj>0?' <span class="adj-badge">+'+item.adj+'%</span>':''}</div>
+        ${item.adj>0?`<div class="presup-item-original">${formatMoney(item.precio*item.qty)}</div>`:''}
+        <div class="presup-item-price">${formatMoney(lineTotal)}</div>
+      </div>
+    </div>`;
+  });
+  html += `</div>
+    <div class="presup-total-box">
+      <div class="presup-total-row"><span class="presup-subtotal">Subtotal</span><span style="font-weight:600">${formatMoney(p.subtotal)}</span></div>
+      ${p.totalAdj>0?`<div class="presup-total-row"><span class="presup-subtotal">Ajuste total</span><span class="adj-badge">+${p.totalAdj}%</span></div>`:''}
+      <div class="presup-total-row" style="margin-top:10px;border-top:1px solid rgba(26,86,219,0.2);padding-top:10px">
+        <span style="font-size:15px;font-weight:700;color:var(--primary)">TOTAL</span>
+        <span class="presup-grand-total">${formatMoney(p.total)}</span>
+      </div>
+    </div>`;
+  document.getElementById('view-presup-content').innerHTML = html;
+  openModal('modal-view-presup');
+}
+window.viewPresup = viewPresup;
+
+window.editCurrentPresup = () => { closeModal('modal-view-presup'); openPresupModal(window._presupuestos[window._currentViewPresupId]); };
+window.deleteCurrentPresup = async () => {
+  if (!confirm('¿Eliminar este presupuesto?')) return;
+  const id = window._currentViewPresupId;
+  delete window._presupuestos[id];
+  closeModal('modal-view-presup');
+  renderPresupuestos(); renderDashboard();
+  if (window._localMode) setLS('sp_presupuestos', window._presupuestos);
+  else if (window._currentUser) await window._deleteFromFS('presupuestos', id).catch(()=>{});
+  showToast('🗑 Presupuesto eliminado');
+};
+
+window.generatePresupPDF = () => {
+  const p = window._presupuestos[window._currentViewPresupId]; if (!p) return;
+
+  const itemsRows = (p.items||[]).map(item => {
+    const adjPrice = item.precio * (1+(item.adj||0)/100);
+    const lineTotal = adjPrice * item.qty;
+    const adjHtml = item.adj>0
+      ? `<span style="font-size:11px;background:#fef9c3;color:#854d0e;padding:1px 6px;border-radius:8px;font-weight:700">+${item.adj}%</span>`
+      : '—';
+    return `<tr>
+      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0">
+        <div style="font-weight:600;font-size:13px">${item.nombre}</div>
+        <div style="font-size:11px;color:#64748b">${item.desc||''}</div>
+      </td>
+      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:center;font-size:13px">${item.qty}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:right;font-size:13px">${formatMoney(item.precio)}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:center">${adjHtml}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid #e2e8f0;text-align:right;font-size:13px;font-weight:700">${formatMoney(lineTotal)}</td>
+    </tr>`;
+  }).join('');
+
+  const totalAdjRow = p.totalAdj>0 ? `
+    <tr>
+      <td colspan="4" style="padding:8px 12px;text-align:right;color:#64748b;font-size:13px">Ajuste total <span style="background:#fef9c3;color:#854d0e;padding:1px 6px;border-radius:8px;font-size:11px;font-weight:700">+${p.totalAdj}%</span></td>
+      <td style="padding:8px 12px;text-align:right;font-size:13px;color:#64748b">${formatMoney(p.total - p.subtotal)}</td>
+    </tr>` : '';
+
+  document.getElementById('pdf-content').innerHTML = `
+  <div style="max-width:700px;margin:0 auto;font-family:'Segoe UI',system-ui,sans-serif;color:#1e293b">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px">
+      <div>
+        <div style="font-size:26px;font-weight:800;color:#1a56db">Secure<span style="color:#f59e0b">Pro</span></div>
+        <div style="font-size:12px;color:#64748b;margin-top:2px">Sistema de seguridad</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-size:22px;font-weight:800">PRESUPUESTO</div>
+        <div style="font-size:13px;color:#64748b;margin-top:4px">Fecha: ${formatDate(p.date)}</div>
+      </div>
+    </div>
+
+    <div style="background:#f8fafc;border-radius:10px;padding:16px 20px;margin-bottom:28px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#64748b;margin-bottom:6px">Cliente</div>
+      <div style="font-size:18px;font-weight:700">${p.client}</div>
+      ${p.notes?`<div style="font-size:13px;color:#64748b;margin-top:4px">${p.notes}</div>`:''}
+    </div>
+
+    <table style="width:100%;border-collapse:collapse;margin-bottom:16px">
+      <thead>
+        <tr style="background:#1a56db;color:white">
+          <th style="padding:10px 12px;text-align:left;font-size:12px;font-weight:700;border-radius:8px 0 0 0">Producto</th>
+          <th style="padding:10px 12px;text-align:center;font-size:12px;font-weight:700">Cant.</th>
+          <th style="padding:10px 12px;text-align:right;font-size:12px;font-weight:700">P. unitario</th>
+          <th style="padding:10px 12px;text-align:center;font-size:12px;font-weight:700">Ajuste</th>
+          <th style="padding:10px 12px;text-align:right;font-size:12px;font-weight:700;border-radius:0 8px 0 0">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>${itemsRows}</tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4" style="padding:10px 12px;text-align:right;color:#64748b;font-size:13px">Subtotal</td>
+          <td style="padding:10px 12px;text-align:right;font-size:13px;font-weight:600">${formatMoney(p.subtotal)}</td>
+        </tr>
+        ${totalAdjRow}
+        <tr style="background:#e8f0fe">
+          <td colspan="4" style="padding:12px;text-align:right;font-size:16px;font-weight:800;color:#1a56db;border-radius:0 0 0 8px">TOTAL</td>
+          <td style="padding:12px;text-align:right;font-size:22px;font-weight:800;color:#1a56db;border-radius:0 0 8px 0">${formatMoney(p.total)}</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <div style="margin-top:32px;padding-top:16px;border-top:1px solid #e2e8f0;font-size:11px;color:#94a3b8;text-align:center">
+      Presupuesto generado con SecuroPro
+    </div>
+  </div>`;
+
+  closeModal('modal-view-presup');
+  document.getElementById('pdf-overlay').style.display = 'block';
+  window.scrollTo(0,0);
+};
+
+window.closePDF = () => {
+  document.getElementById('pdf-overlay').style.display = 'none';
+};
+
+window.sendPresupWA = () => {
+  const p = window._presupuestos[window._currentViewPresupId]; if (!p) return;
+  let msg = `*Presupuesto*\n`;
+  msg += `Cliente: ${p.client}\n`;
+  msg += `Fecha: ${formatDate(p.date)}\n`;
+  if (p.notes) msg += `Nota: ${p.notes}\n`;
+  msg += `\n*Detalle:*\n`;
+  (p.items||[]).forEach(item => {
+    const adjPrice = item.precio * (1+(item.adj||0)/100);
+    const lineTotal = adjPrice * item.qty;
+    msg += `• ${item.nombre} x${item.qty}: ${formatMoney(lineTotal)}\n`;
+  });
+  msg += `\n*TOTAL: ${formatMoney(p.total)}*`;
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank');
 };
 
 // === UTILS ===
-function formatDate(str) {
-  if (!str) return '';
-  const [y,m,d] = str.split('-');
-  return `${d}/${m}/${y}`;
-}
-
 function openModal(id) { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 window.closeModal = closeModal;
@@ -1336,17 +1999,22 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
+// Cerrar dropdown al hacer click afuera
+document.addEventListener('click', e => {
+  if (!e.target.closest('.product-search-wrap')) {
+    const dd = document.getElementById('prod-dropdown');
+    if (dd) dd.style.display = 'none';
+  }
+});
+
 // === INIT ===
-// Si Firebase no carga en 3s, activar modo local
 setTimeout(() => {
   if (!window._fbReady && !window._localMode && !window._currentUser) {
-    console.log('Firebase timeout, activando modo local');
     window._localMode = true;
     initApp();
   }
 }, 3000);
 
-// Mostrar login si Firebase está listo pero no hay usuario
 window.addEventListener('load', () => {
   renderCalendar();
   document.getElementById('main-fab').style.display = 'none';
